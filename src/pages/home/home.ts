@@ -6,9 +6,11 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  private isCorrect: boolean;
   constructor(public navCtrl: NavController) {
-
+    this.isCorrect = false;
   }
-
+  login(){
+    this.isCorrect = true;
+  }
 }

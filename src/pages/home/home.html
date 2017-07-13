@@ -1,18 +1,37 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button *ngIf="isCorrect == true" ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>로그인</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <div class="empty-list" *ngIf="isCorrect == false">
+    <h1>
+      <ion-icon name="ios-lock"></ion-icon>
+    </h1>
+    <p>현재 기능 잠금 상태입니다.</p>
+    <p>ID 와 PASSWORD를 통해 잠금해제 해주세요</p>
+    <ion-label stacked style="color:black">ID</ion-label>
+    <ion-input placeholder="사원 ID를 입력하세요." type="text"></ion-input>
+    <ion-label stacked style="color:black">PASSWORD</ion-label>
+    <ion-input placeholder="사원 PASSWORD를 입력하세요." type="password"></ion-input>
+    <ion-fab center>
+      <button ion-fab (click)="login()"><ion-icon name="ios-unlock"></ion-icon></button>
+      </ion-fab> 
+  </div>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <div class="empty-list" *ngIf="isCorrect == true">
+    <h1>
+      <ion-icon name="ios-unlock"></ion-icon>
+      환영합니다.
+    </h1>
+    <p>좌측 상단의 메뉴를 통해 기능을 이용하세요.</p>
+  </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+
+
 </ion-content>
