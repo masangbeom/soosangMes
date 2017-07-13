@@ -3,7 +3,8 @@
     <button *ngIf="isCorrect == true" ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>로그인</ion-title>
+    <ion-title *ngIf="isCorrect == false">로그인을 해주세요.</ion-title>
+    <ion-title *ngIf="isCorrect == true">환영합니다.</ion-title>
   </ion-navbar>
 </ion-header>
 
