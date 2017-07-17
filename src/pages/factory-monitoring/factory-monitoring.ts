@@ -35,7 +35,8 @@ export class FactoryMonitoringPage {
     lines.push(line1);
     lines.push(line2);
     lines.push(line3);    
-    lines.push(line4);
+    lines.push(line4);   
+
 
     let factory1 = {
       title: "Factory 1",

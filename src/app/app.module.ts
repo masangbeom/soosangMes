@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FactoryMonitoringPage } from './../pages/factory-monitoring/factory-monitoring';
 import { LineMonitoringInfoPage } from './../pages/line-monitoring-info/line-monitoring-info';
+import { ScheduleManagerPage } from './../pages/schedule-manager/schedule-manager';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     FactoryMonitoringPage,
     LineMonitoringInfoPage,
+    ScheduleManagerPage,
     ListPage
   ],
   imports: [
@@ -29,6 +31,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     FactoryMonitoringPage,
     LineMonitoringInfoPage,
+    ScheduleManagerPage,
     ListPage
   ],
   providers: [

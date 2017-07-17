@@ -1,3 +1,4 @@
+import { ScheduleManagerPage } from './../pages/schedule-manager/schedule-manager';
 import { FactoryMonitoringPage } from './../pages/factory-monitoring/factory-monitoring';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -24,6 +25,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: '라인&공정 관리', component: FactoryMonitoringPage},
+      { title: '일정 관리', component: ScheduleManagerPage},
       { title: 'List', component: ListPage }
     ];
 
