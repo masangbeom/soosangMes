@@ -13,7 +13,9 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
     this.isCorrect = false;
   }
+  
   login(){
     this.isCorrect = true;
   }
+
 }

@@ -24,15 +24,13 @@
       </ion-fab> 
   </div>
 
-  <div class="empty-list" *ngIf="isCorrect == true">
+  <div class="empty-lists" *ngIf="isCorrect == true">
     <h1>
       <ion-icon name="ios-unlock"></ion-icon>
       환영합니다.
     </h1>
-    <p>좌측 상단의 메뉴를 통해 기능을 이용하세요.</p>
+    <button icon-left ion-button menuToggle><ion-icon name="md-analytics"></ion-icon>수상에스티-MES</button>
+    <p>또는 좌측 상단의 메뉴버튼을 통해 기능을 이용하세요.</p>
   </div>
-
-
-
 
 </ion-content>
