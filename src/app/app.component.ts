@@ -1,3 +1,4 @@
+import { ManagerModePage } from './../pages/manager-mode/manager-mode';
 import { FactoryEnvironmentManagerPage } from './../pages/factory-environment-manager/factory-environment-manager';
 import { MaterialsLocationManagerPage } from './../pages/materials-location-manager/materials-location-manager';
 import { WorkerManagerPage } from './../pages/worker-manager/worker-manager';
@@ -33,7 +34,8 @@ export class MyApp {
       { title: '재고관리', component: StockManagerPage, iconName: 'logo-dropbox'},
       { title: '인적자원관리', component: WorkerManagerPage, iconName: 'ios-people'},
       { title: '자재위치관리', component: MaterialsLocationManagerPage, iconName: 'md-locate'},
-      { title: ' 공장환경관리', component: FactoryEnvironmentManagerPage, iconName: 'ios-thermometer-outline'},
+      { title: '공장환경관리', component: FactoryEnvironmentManagerPage, iconName: 'md-globe'},
+      { title: '관리자모드', component: ManagerModePage, iconName: 'md-settings'}
     ];
 
   }

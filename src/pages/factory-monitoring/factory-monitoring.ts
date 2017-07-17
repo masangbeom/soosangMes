@@ -62,8 +62,6 @@ export class FactoryMonitoringPage {
     this.factories.push(factory2);
     this.factories.push(factory3);
     this.factories.push(factory4);
-    
-
   }
 
   viewMonitoring(factoryTitle, lineId){

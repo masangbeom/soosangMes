@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar color="danger2">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>관리자 모드</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<div class="empty-list" *ngIf="isCorrect == false">
+    <h1>
+      <ion-icon name="ios-alert-outline"></ion-icon>
+    </h1>
+    <p>관리자 페이지입니다.</p>
+    <p>관리자 PASSWORD를 통해 잠금해제 해주세요</p>
+    <ion-label stacked style="color:black">PASSWORD</ion-label>
+    <ion-input placeholder="관리자 PASSWORD를 입력하세요." type="password"></ion-input>
+    <ion-fab center>
+      <button ion-fab color="danger" (click)="login()"><ion-icon name="ios-unlock"></ion-icon></button>
+      </ion-fab> 
+  </div>
+
+  <div class="empty-list" *ngIf="isCorrect == true">
+    <h1>
+      <ion-icon name="ios-construct-outline"></ion-icon>
+      
+    </h1>
+  </div>
+
+</ion-content>

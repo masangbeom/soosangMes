@@ -12,6 +12,7 @@ import { StockManagerPage } from './../pages/stock-manager/stock-manager';
 import { WorkerManagerPage } from './../pages/worker-manager/worker-manager';
 import { FactoryEnvironmentManagerPage } from './../pages/factory-environment-manager/factory-environment-manager';
 import { MaterialsLocationManagerPage } from './../pages/materials-location-manager/materials-location-manager';
+import { ManagerModePage } from './../pages/manager-mode/manager-mode';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,6 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     WorkerManagerPage,
     FactoryEnvironmentManagerPage,
     MaterialsLocationManagerPage,
+    ManagerModePage,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     WorkerManagerPage,
     FactoryEnvironmentManagerPage,
     MaterialsLocationManagerPage,
+    ManagerModePage,
   ],
   providers: [
     StatusBar,
