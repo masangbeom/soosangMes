@@ -1,7 +1,7 @@
 page-factory-monitoring {
   .select {
     button {
-      margin-left: 40%;
+      margin-left: 37%;
     }
     img {
       height: 200px;
@@ -9,6 +9,24 @@ page-factory-monitoring {
       margin-left: 24%;
       margin-bottom: 30px;
     }
+    h3{
+        margin-top: 30px;
+        text-align: center;
+    }
+    ion-item{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
   }
+  div.input-wrapper{
+    border-style: outset;
+  }
+
+button.button.button-md.button-default.button-default-md.button-full.button-full-md.button-md-light{
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 }
 
