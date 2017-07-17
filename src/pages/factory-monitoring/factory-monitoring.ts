@@ -1,5 +1,6 @@
+import { LineMonitoringInfoPage } from './../line-monitoring-info/line-monitoring-info';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 
 @Component({
   selector: 'page-factory-monitoring',
@@ -8,7 +9,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class FactoryMonitoringPage {
   private factories: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
   }
 
   ionViewDidLoad() {
@@ -64,8 +65,10 @@ export class FactoryMonitoringPage {
 
   }
 
-  viewMonitoring(lineId){
-    console.log(lineId);
+  viewMonitoring(factoryTitle, lineId){
+    this.app.getRootNav().push(LineMonitoringInfoPage,{
+      factoryTitle: factoryTitle,
+      lineId: lineId
+    })
   }
-
 }

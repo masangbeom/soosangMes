@@ -22,7 +22,7 @@
             <h3>{{factory.description}}</h3>
             </div>
             <ion-list>
-                <button color="light" (click)="viewMonitoring(line.lineId)" *ngFor="let line of factory.lines" ion-button full>{{line.name}}</button>
+                <button color="light" (click)="viewMonitoring(factory.title, line.lineId)" *ngFor="let line of factory.lines" ion-button full>{{line.name}}</button>
             </ion-list>
           </ion-card>
         </ion-col>

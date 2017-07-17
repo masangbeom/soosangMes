@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FactoryMonitoringPage } from './../pages/factory-monitoring/factory-monitoring';
+import { LineMonitoringInfoPage } from './../pages/line-monitoring-info/line-monitoring-info';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -15,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     FactoryMonitoringPage,
+    LineMonitoringInfoPage,
     ListPage
   ],
   imports: [
@@ -26,6 +28,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     FactoryMonitoringPage,
+    LineMonitoringInfoPage,
     ListPage
   ],
   providers: [
