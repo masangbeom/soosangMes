@@ -1,3 +1,4 @@
+import { FactoryMonitoringPage } from './../pages/factory-monitoring/factory-monitoring';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,6 +23,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
+      { title: '라인&공정 관리', component: FactoryMonitoringPage},
       { title: 'List', component: ListPage }
     ];
 
