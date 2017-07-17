@@ -7,7 +7,11 @@ import { HomePage } from '../pages/home/home';
 import { FactoryMonitoringPage } from './../pages/factory-monitoring/factory-monitoring';
 import { LineMonitoringInfoPage } from './../pages/line-monitoring-info/line-monitoring-info';
 import { ScheduleManagerPage } from './../pages/schedule-manager/schedule-manager';
-import { ListPage } from '../pages/list/list';
+import { PoorManagerPage } from './../pages/poor-manager/poor-manager';
+import { StockManagerPage } from './../pages/stock-manager/stock-manager';
+import { WorkerManagerPage } from './../pages/worker-manager/worker-manager';
+import { FactoryEnvironmentManagerPage } from './../pages/factory-environment-manager/factory-environment-manager';
+import { MaterialsLocationManagerPage } from './../pages/materials-location-manager/materials-location-manager';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +23,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FactoryMonitoringPage,
     LineMonitoringInfoPage,
     ScheduleManagerPage,
-    ListPage
+    PoorManagerPage,
+    StockManagerPage,
+    WorkerManagerPage,
+    FactoryEnvironmentManagerPage,
+    MaterialsLocationManagerPage,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FactoryMonitoringPage,
     LineMonitoringInfoPage,
     ScheduleManagerPage,
-    ListPage
+    PoorManagerPage,
+    StockManagerPage,
+    WorkerManagerPage,
+    FactoryEnvironmentManagerPage,
+    MaterialsLocationManagerPage,
   ],
   providers: [
     StatusBar,
