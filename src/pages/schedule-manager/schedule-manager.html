@@ -28,6 +28,7 @@
         <button ion-button full color="dark" (click)="lineSelect(line.lineId)" *ngFor="let line of factory.lines">
             {{line.name}}
           </button>
+         <button ion-button full color="danger2" (click)="lineSelectCancel()">선택 취소</button>  
       </ion-card>
     </div>
     <div class="factoryProcess" *ngIf="selectLine == 0">

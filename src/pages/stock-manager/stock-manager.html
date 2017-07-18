@@ -11,14 +11,36 @@
 
 
 <ion-content padding>
-  <div class="selectFactory">
+  <div class="selectWarehouse">
     <ion-item>
       <ion-label>재고 창고 선택</ion-label>
       <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
-        <ion-option *ngFor="let factory of factories">
-          {{factory.title}}
+        <ion-option *ngFor="let warehouse of warehouses">
+          {{warehouse.title}}
         </ion-option>
       </ion-select>
     </ion-item>
   </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="lineProcess_chart" *ngIf="selectOn.length > 0">
+          <ion-card>
+            <div style="display: block">
+              <canvas id="wareChart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </ion-card>
+        </div>
+      </ion-col>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
 </ion-content>
+

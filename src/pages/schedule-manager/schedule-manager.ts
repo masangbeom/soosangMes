@@ -107,6 +107,10 @@ export class ScheduleManagerPage {
     console.log(this.selectLine);
   }
 
+  lineSelectCancel(){
+    this.selectLine = 0;
+  }
+
   public chartClicked(e:any):void {
     console.log(e);
   }

@@ -1,5 +1,5 @@
 page-stock-manager {
-    .selectFactory {
+    .selectWarehouse {
     width: 40%;
     text-align: center;
     ion-label {
@@ -7,4 +7,9 @@ page-stock-manager {
       font-weight: bold;
     }
   }
+
+  .lineProcess_chart{
+          margin-top: 15%;
+      }
+
 }
