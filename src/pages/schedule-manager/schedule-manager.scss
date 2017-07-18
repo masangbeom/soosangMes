@@ -1,3 +1,60 @@
 page-schedule-manager {
-
+  .selectFactory {
+    width: 40%;
+    text-align: center;
+    ion-label {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  .lineSelect {
+      width: 15%;
+      position: absolute;
+    ion-card {
+      width: 100%;
+      text-align: center;
+      border-style: outset;
+      margin-top: 50px;
+      ion-card-title{
+          font-size: 20px;
+          font-weight: bold;
+      }
+    }
+    button {
+      height: 50px;
+      margin-bottom: 50px;
+      margin-top: 30px;
+    }
+  }
+    .factoryProcess{
+      width: 75%;
+      position: absolute;
+      margin-left: 20%;
+      ion-card {
+      width: 100%;
+      text-align: center;
+      border-style: outset;
+      margin-top: 50px;
+      ion-card-title{
+          font-size: 20px;
+          font-weight: bold;
+      }
+    }
+  }
+  .lineProcess{
+      width: 75%;
+      position: absolute;
+      margin-left: 20%;
+      ion-card {
+      width: 100%;
+      text-align: center;
+      border-style: outset;
+      margin-top: 50px;
+      ion-card-title{
+          font-size: 20px;
+          font-weight: bold;
+      }
+    }
+  }
 }
+
