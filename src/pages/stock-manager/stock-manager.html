@@ -11,5 +11,14 @@
 
 
 <ion-content padding>
-
+  <div class="selectFactory">
+    <ion-item>
+      <ion-label>재고 창고 선택</ion-label>
+      <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
+        <ion-option *ngFor="let factory of factories">
+          {{factory.title}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
 </ion-content>
