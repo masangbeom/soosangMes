@@ -29,7 +29,7 @@
           <ion-card>
             <div style="display: block">
               <canvas id="wareChart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-                [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                [chartType]="barChartType" [colors]="barChartColors" (chartClick)="chartClicked($event)"></canvas>
             </div>
           </ion-card>
         </div>

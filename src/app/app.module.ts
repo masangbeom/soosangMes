@@ -18,7 +18,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { ChartsModule } from 'ng2-charts';
-import { Chart } from 'chart.js';
 
 @NgModule({
   declarations: [
