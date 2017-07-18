@@ -54,7 +54,52 @@ page-schedule-manager {
           font-size: 20px;
           font-weight: bold;
       }
+      ion-card-content{
+          
+      }
+      .lineProcess_chart{
+          margin-top: 80px; 
+      }
+      ion-col{
+          h1{
+              font-weight: bold;
+          }
+            p{
+                text-align: left;
+            }
+      }
     }
   }
+
+  progress-bar {
+ 
+    .progress-outer {
+        width: 96%;
+        padding: 5px;
+        margin-top: 10px;
+        text-align: center;
+        background-color: #f4f4f4;
+        border: 1px solid #dcdcdc;
+        color: #fff;
+        border-radius: 20px;
+    }
+    .progress-inner {
+
+        min-width: 15%;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 17px;
+        border-radius: 20px;
+        background-color: map-get($colors, primary);
+    }
+    .progress-overinner{
+        min-width: 15%;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 5px;
+        border-radius: 20px;
+        background-color: map-get($colors, google);
+    }
+}
 }
 
