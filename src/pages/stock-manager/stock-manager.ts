@@ -158,8 +158,6 @@ export class StockManagerPage {
         }
         this.warehouse = warehouse;
         this.products = this.warehouse.products;
-        console.log(this.warehouse);
-        console.log(this.products);
       }
     }
 
@@ -185,7 +183,7 @@ export class StockManagerPage {
         })
       }
       else{
-        colorTemp1.push('rgba(54, 162, 235, 0.2)');
+        colorTemp1.push('rgba(54, 162, 235, 0.5)');
         colorTemp2.push('rgba(54, 162, 235, 1)');
       }
     }
