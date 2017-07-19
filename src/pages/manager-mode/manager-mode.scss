@@ -35,9 +35,8 @@ page-manager-mode {
     width: 50%;
     margin-left: 25%;
   }
-  button.fab.fab-md {
+  ion-fab{
     margin-top: 20px;
-    color: #ffffff;
-    background-color: #dd4b39;
+    background-color: "danger2";
   }
 }

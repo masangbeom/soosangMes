@@ -22,20 +22,17 @@ export class StockManagerPage {
   public barChartLabels: any;
   public barChartType: string = 'bar';
   public barChartLegend: boolean = false;
-
   public barChartData: any[] = [{
-    data:{
-    datasets:[{
     data: [0,0,0,0,0,0,0],
     label: '재고량',
   },
   {
     data: [0,0,0,0,0,0,0],
     label: '필요량',
-    type: 'line'
+    backgroundColor: 'rgba(0, 0, 0, 0.01)',
+    borderColor: 'rgba(0, 0, 0, 0.5)',
+    type: 'line',
   }
-]}
-}
 ];
 
   public barChartColors: Array < any > = [{
@@ -154,10 +151,10 @@ export class StockManagerPage {
     for (let i = 0; i < this.products.length; i++) {
       dataTemp.push(this.products[i].stock_amount);
       limitTemp.push(this.products[i].limit);
+      labelTemp.push(this.products[i].name);
       if(this.products[i].limit > this.products[i].stock_amount){
         colorTemp1.push('rgba(241, 0, 0, 0.5)');
         colorTemp2.push('rgba(241, 0, 0, 1)');
-        labelTemp.push(this.products[i].name + '\n[재고부족]');
         leakTemp.push({
           leakProductName: this.products[i].name,
           leakNumber: this.products[i].limit - this.products[i].stock_amount
@@ -166,7 +163,6 @@ export class StockManagerPage {
       else{
         colorTemp1.push('rgba(54, 162, 235, 0.2)');
         colorTemp2.push('rgba(54, 162, 235, 1)');
-        labelTemp.push(this.products[i].name);
       }
     }
 
@@ -175,11 +171,10 @@ export class StockManagerPage {
 
 
     let clone = JSON.parse(JSON.stringify(this.barChartData));
-    clone[0].data.datasets[0] = dataTemp;
-    clone[0].data.datasets[1].data = limitTemp;
+    clone[0].data = dataTemp;
+    clone[1].data = limitTemp;
     
     this.barChartData = clone;
-    console.log(this.barChartData);
     this.barChartColors[0].backgroundColor = colorTemp1;
     this.barChartColors[0].borderColor = colorTemp2;
     this.barChartLabels = labelTemp;
@@ -212,7 +207,7 @@ export class StockManagerPage {
         this.product = this.products[i];
       }
     }
-    console.log(this.product);
+    
     }
   }
 

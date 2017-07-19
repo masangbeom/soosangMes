@@ -11,6 +11,10 @@
 
 
 <ion-content padding>
+  <ion-fab top right edge>
+        <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
+  </ion-fab>
+
   <div class="selectWarehouse">
     <ion-item>
       <ion-label>재고 창고 선택</ion-label>
@@ -42,7 +46,18 @@
         </div>
       </ion-col>
       <ion-col>
+        <div class="product_info" *ngIf="product">
+          <ion-row>
+            이름: {{product.name}}<br/>
+            수량: {{product.stock_amount}}<br/>
+            필요량: {{product.limit}}<br/>
+            공장: {{product.p_factory}}<br/>
+            라인:{{product.p_line}}<br/>
+          </ion-row>
+          <ion-row>
 
+          </ion-row>
+          </div>
       </ion-col>
     </ion-row>
   </ion-grid>

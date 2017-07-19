@@ -11,6 +11,9 @@
 
 
 <ion-content padding>
+  <ion-fab top right edge>
+        <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
+  </ion-fab>
 <div class="empty-list" *ngIf="isCorrect == false">
     <h1>
       <ion-icon name="ios-alert-outline"></ion-icon>
@@ -20,7 +23,7 @@
     <ion-label stacked style="color:black">PASSWORD</ion-label>
     <ion-input placeholder="관리자 PASSWORD를 입력하세요." type="password"></ion-input>
     <ion-fab center>
-      <button ion-fab color="danger" (click)="login()"><ion-icon name="ios-unlock"></ion-icon></button>
+      <button ion-fab sytle='margin-top: 20px' color="danger" (click)="login()"><ion-icon name="ios-unlock"></ion-icon></button>
       </ion-fab> 
   </div>
 
