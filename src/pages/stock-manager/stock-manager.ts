@@ -1,12 +1,13 @@
 import { Component} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'page-stock-manager',
   templateUrl: 'stock-manager.html',
 })
 export class StockManagerPage {
+
+  private select_view: any = "daily";
 
   private warehouses: any;
   private selectOn: any;
@@ -18,6 +19,10 @@ export class StockManagerPage {
   public isDataAvailable:boolean = false;
   public barChartOptions: any;
   public barChartLabels: any;
+  public barChartColors: Array <any> = [{
+    backgroundColor: [],
+    borderColor: [],
+  }];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = false;
   public barChartData: any[] = [{
@@ -31,14 +36,54 @@ export class StockManagerPage {
     borderColor: 'rgba(0, 0, 0, 0.5)',
     type: 'line',
   }
-];
+  ];
 
-  public barChartColors: Array < any > = [{
-    backgroundColor: [
-    ],
-    borderColor: [
-    ],
-  }, ];
+
+  // lineChart
+  public lineChartData: Array < any > = [{
+      data: [28, 48, 40, 19, 86, 27],
+      label: 'Series A'
+    },
+  ];
+  public lineChartLabels: Array < any > = ['tes1', 'test2', 'test3', 'test4', 'test5', 'test6'];
+  public lineChartOptions: any = {
+    responsive: true,
+    scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            fontStyle: "bold"
+          }
+        }],
+      }
+  };
+  public lineChartColors: Array < any > = [{ // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
+    { // dark grey
+      backgroundColor: 'rgba(77,83,96,0.2)',
+      borderColor: 'rgba(77,83,96,1)',
+      pointBackgroundColor: 'rgba(77,83,96,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(77,83,96,1)'
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+  ];
+  public lineChartLegend: boolean = true;
+  public lineChartType: string = 'line';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
@@ -143,7 +188,7 @@ export class StockManagerPage {
     this.warehouses.push(warehouse4);
   }
 
-  //창고 선택 이후
+  //창고 선택
   onChange(selectOn) {
     this.selectProduct = 0;
     this.selectOn = selectOn.trim();
@@ -167,8 +212,6 @@ export class StockManagerPage {
     let colorTemp1 = [];
     let colorTemp2 = [];
     let leakTemp = [];
-    colorTemp1 = this.barChartColors[0].backgroundColor;
-    colorTemp2 = this.barChartColors[0].borderColor;
   
     for (let i = 0; i < this.products.length; i++) {
       dataTemp.push(this.products[i].stock_amount);
@@ -195,12 +238,9 @@ export class StockManagerPage {
     let clone = JSON.parse(JSON.stringify(this.barChartData));
     clone[0].data = dataTemp;
     clone[1].data = limitTemp;
-    
+  
     this.barChartData = clone;
-    this.barChartColors[0].backgroundColor = colorTemp1;
-    this.barChartColors[0].borderColor = colorTemp2;
     this.barChartLabels = labelTemp;
-
     this.barChartOptions = {
       scaleShowVerticalLines: true,
       responsive: true,
@@ -217,10 +257,12 @@ export class StockManagerPage {
         }],
       }
     };
+    this.barChartColors[0].backgroundColor=colorTemp1;
+    this.barChartColors[0].borderColor=colorTemp2;
 
   }
 
-
+  //물품 선택
   public chartClicked(e: any): void {
     this.selectProduct = 1;
     if(e.active[0]){
@@ -233,6 +275,8 @@ export class StockManagerPage {
     }
     
     }
+    this.lineChartData[0].data = this.barChartData[0].data;
+    this.lineChartLabels = this.barChartLabels;
   }
 
   public chartHovered(e: any): void {

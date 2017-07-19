@@ -12,12 +12,14 @@
 
 <ion-content padding>
   <ion-fab top right edge>
-        <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
+    <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
   </ion-fab>
 
   <div class="selectWarehouse">
     <ion-item>
-      <ion-label>재고 창고 선택</ion-label>
+      <ion-label>
+        <h1>재고 창고 선택</h1>
+      </ion-label>
       <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
         <ion-option *ngFor="let warehouse of warehouses">
           {{warehouse.title}}
@@ -31,18 +33,19 @@
       <ion-col>
         <div class="leak_alert" *ngIf="leakProducts">
           <ion-list>
-            <ion-item icon-left *ngFor="let leakProduct of leakProducts">
+            <ion-card icon-left *ngFor="let leakProduct of leakProducts">
               <ion-icon name="ios-alert" color="danger"></ion-icon>[{{leakProduct.leakProductName}}]의 재고가 [{{leakProduct.leakNumber}}]만큼 부족합니다.
-            </ion-item>
+            </ion-card>
           </ion-list>
         </div>
-        <div class="lineProcess_chart">
+        <div class="stock_chart">
           <ion-card>
-            <div style="display: block" *ngFor="let warehouse of warehouses">
+            <div style="display: block; padding-left: 10px;" *ngFor="let warehouse of warehouses">
               <div *ngIf="selectOn == warehouse.title">
-              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-                [chartType]="barChartType" [colors]="barChartColors" (chartClick)="chartClicked($event)"></canvas>
-                </div>
+                <ion-card-header>{{warehouse.title}}</ion-card-header>
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                  [chartType]="barChartType" [colors]="barChartColors" (chartClick)="chartClicked($event)"></canvas>
+              </div>
             </div>
           </ion-card>
         </div>
@@ -50,16 +53,39 @@
       <ion-col>
         <div class="product_info" *ngIf="product && selectProduct==1">
           <ion-row>
-            이름: {{product.name}}<br/>
-            수량: {{product.stock_amount}}<br/>
-            필요량: {{product.limit}}<br/>
-            공장: {{product.p_factory}}<br/>
-            라인:{{product.p_line}}<br/>
+            <ion-card>
+              <ion-card-header><strong>[{{product.name}}]</strong>의 재고 정보 <strong>[사용 : {{product.p_factory}} - {{product.p_line}}]</strong></ion-card-header>
+              <div style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
+                <canvas baseChart height="110px" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+                  [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+              </div>
+            </ion-card>
           </ion-row>
           <ion-row>
-
+            <ion-card>
+              <div padding>
+                <ion-segment [(ngModel)]="select_view">
+                  <ion-segment-button value="daily">
+                    일별
+                  </ion-segment-button>
+                  <ion-segment-button value="monthly">
+                    월별
+                  </ion-segment-button>
+                </ion-segment>
+              </div>
+              <div [ngSwitch]="select_view">
+                <div *ngSwitchCase="'daily'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
+                  <canvas baseChart height="110px" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+                    [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+                </div>
+                <div *ngSwitchCase="'monthly'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
+                  <canvas baseChart height="110px" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+                    [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+                </div>
+              </div>
+            </ion-card>
           </ion-row>
-          </div>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
