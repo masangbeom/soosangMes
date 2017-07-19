@@ -4,6 +4,9 @@ page-home {
     top: 20%;
     width: 100%;
     text-align: center;
+    ion-fab{
+      margin-top: 20px;
+    }
     h1,
     p {
       color: $gray;
@@ -23,7 +26,7 @@ page-home {
       margin-right: auto;
     }
     button {
-      background: $dark;
+      background: $primary;
     }
     button.activated,
     button:active {
@@ -34,11 +37,6 @@ page-home {
     border-style: inset;
     width: 50%;
     margin-left: 25%;
-  }
-  button.fab.fab-md {
-    margin-top: 20px;
-    color: #ffffff;
-    background-color: #2b68e3;
   }
 
   .empty-lists{
@@ -80,9 +78,6 @@ page-home {
     width: 50%;
     margin-left: 25%;
   }
-  button.fab.fab-md {
-    margin-top: 20px;
-    color: #ffffff;
-  }
+  
 }
 

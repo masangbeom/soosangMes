@@ -1,23 +1,21 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'page-stock-manager',
   templateUrl: 'stock-manager.html',
 })
 export class StockManagerPage {
-  @ViewChild('barCanvas') barCanvas;
-
-  barChart: any;
 
   private warehouses: any;
-  private selectOn: string = "";
-  private selectLine: number = 0;
+  private selectOn: any;
+  private selectProduct: number = 0;
   private warehouse: any;
   private products: any;
   private product: any;
   private leakProducts: any;
-
+  public isDataAvailable:boolean = false;
   public barChartOptions: any;
   public barChartLabels: any;
   public barChartType: string = 'bar';
@@ -94,29 +92,50 @@ export class StockManagerPage {
       p_line: 2
     }
 
-    this.products.push(product1);
-    this.products.push(product2);
-    this.products.push(product3);
-    this.products.push(product4);
-    this.products.push(product5);
-    this.products.push(product6);
+    let products1 = [];
+    products1.push(product1);
+    products1.push(product2);
+    products1.push(product3);
+    products1.push(product4);
+    products1.push(product5);
+    products1.push(product6);
+    let products2 =[];
+    products2.push(product3);
+    products2.push(product2);
+    products2.push(product1);
+    products2.push(product4);
+    products2.push(product6);
+    products2.push(product5);
+    let products3 =[];
+    products3.push(product4);
+    products3.push(product1);
+    products3.push(product3);
+    products3.push(product5);
+    products3.push(product2);
+    let products4 =[];
+    products4.push(product5);
+    products4.push(product1);
+    products4.push(product2);
 
     let warehouse1 = {
       title: "warehouse 1",
       description: "창고 설명",
-      products: this.products,
+      products: products1,
     }
     let warehouse2 = {
       title: "warehouse 2",
       description: "창고 설명",
+      products: products2,
     }
     let warehouse3 = {
       title: "warehouse 3",
       description: "창고 설명",
+      products: products3,
     }
     let warehouse4 = {
       title: "warehouse 4",
       description: "창고 설명",
+      products: products4,
     }
     this.warehouses.push(warehouse1);
     this.warehouses.push(warehouse2);
@@ -126,16 +145,21 @@ export class StockManagerPage {
 
   //창고 선택 이후
   onChange(selectOn) {
-    this.selectLine = 0;
-    let temp: string = selectOn.trim();
+    this.selectProduct = 0;
+    this.selectOn = selectOn.trim();
+
+
     for (let i = 0; i < this.warehouses.length; i++) {
-      if (temp == this.warehouses[i].title) {
+      if (this.selectOn == this.warehouses[i].title) {
         let warehouse = {
-          title: temp,
+          title: this.selectOn,
           description: this.warehouses[i].description,
-          lines: this.warehouses[i].lines
+          products: this.warehouses[i].products,
         }
-        this.warehouse = warehouse
+        this.warehouse = warehouse;
+        this.products = this.warehouse.products;
+        console.log(this.warehouse);
+        console.log(this.products);
       }
     }
 
@@ -198,7 +222,9 @@ export class StockManagerPage {
 
   }
 
+
   public chartClicked(e: any): void {
+    this.selectProduct = 1;
     if(e.active[0]){
     this.product = e.active[0]._model.label;
     let productName = e.active[0]._model.label;

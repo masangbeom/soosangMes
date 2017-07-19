@@ -36,17 +36,19 @@
             </ion-item>
           </ion-list>
         </div>
-        <div class="lineProcess_chart" *ngIf="selectOn.length > 0">
+        <div class="lineProcess_chart" *ngIf="selectOn">
           <ion-card>
-            <div style="display: block">
-              <canvas id="wareChart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+            <div style="display: block" *ngFor="let warehouse of warehouses">
+              <div *ngIf="selectOn == warehouse.title">
+              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
                 [chartType]="barChartType" [colors]="barChartColors" (chartClick)="chartClicked($event)"></canvas>
+                </div>
             </div>
           </ion-card>
         </div>
       </ion-col>
       <ion-col>
-        <div class="product_info" *ngIf="product">
+        <div class="product_info" *ngIf="product && selectProduct==1">
           <ion-row>
             이름: {{product.name}}<br/>
             수량: {{product.stock_amount}}<br/>

@@ -23,7 +23,7 @@ page-manager-mode {
       margin-right: auto;
     }
     button {
-      background: $dark;
+      background: $google;
     }
     button.activated,
     button:active {
@@ -37,6 +37,6 @@ page-manager-mode {
   }
   ion-fab{
     margin-top: 20px;
-    background-color: "danger2";
+    color: #dd4b39;
   }
 }
