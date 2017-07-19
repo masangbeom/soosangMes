@@ -25,6 +25,13 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <div class="leak_alert" *ngIf="leakProducts">
+          <ion-list>
+            <ion-item icon-left *ngFor="let leakProduct of leakProducts">
+              <ion-icon name="ios-alert" color="danger"></ion-icon>[{{leakProduct.leakProductName}}]의 재고가 [{{leakProduct.leakNumber}}]만큼 부족합니다.
+            </ion-item>
+          </ion-list>
+        </div>
         <div class="lineProcess_chart" *ngIf="selectOn.length > 0">
           <ion-card>
             <div style="display: block">

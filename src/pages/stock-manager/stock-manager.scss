@@ -7,9 +7,16 @@ page-stock-manager {
       font-weight: bold;
     }
   }
+  .leak_alert{
+    width: 80%;
+    border-style: inset;
+    ion-item{
+    font-weight: bold;
+    }
 
+  }
   .lineProcess_chart{
-          margin-top: 15%;
+          margin-top: 5%;
       }
   
 
