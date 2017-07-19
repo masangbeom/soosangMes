@@ -16,6 +16,7 @@ export class StockManagerPage {
   private warehouse: any;
   private products: any;
   private product: any;
+  private wareChart: any;
 
   public barChartOptions: any;
   public barChartLabels: any;
@@ -48,7 +49,8 @@ export class StockManagerPage {
     ],
   }, ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
 
   ionViewDidLoad() {
 
@@ -139,6 +141,8 @@ export class StockManagerPage {
 
     let dataTemp = [];
     let labelTemp = [];
+    console.log(this.barChartColors);
+
     for (let i = 0; i < this.products.length; i++) {
       dataTemp.push(this.products[i].stock_amount);
       labelTemp.push(this.products[i].name);
@@ -157,12 +161,13 @@ export class StockManagerPage {
         display: true,
         text: this.selectOn.trim() + '의 물품별 재고량'
       },
-      gridline: {
-        display: true,
-        color: 'rgba(255, 206, 86, 1)',
-        drawOnChartArea: true,
-        drawTicks: true,
-        
+      scales:{
+        yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            fontStyle: "bold"
+                        }
+                    }],
       }
     };
 
@@ -170,7 +175,15 @@ export class StockManagerPage {
 
   public chartClicked(e: any): void {
     console.log("click");
-    console.log(e);
+    this.product = e.active[0]._view.label;
+    let productName = e.active[0]._view.label;
+    for(let i=0; i<this.products.length; i++){
+      if(this.products[i].name == productName){
+        this.product = this.products[i];
+      }
+    }
+    console.log(this.product);
+    
   }
 
   public chartHovered(e: any): void {
