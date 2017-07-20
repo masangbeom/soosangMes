@@ -5,7 +5,14 @@
 </ion-header>
 
 <ion-content padding>
- <ion-fab top right edge>
-        <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
-  </ion-fab>
+  
+      <button [@flip]="flipState" ion-button color="light" (click)="toggleFlip()">Flip!</button>
+
+      <button [@flyInOut]="flyInOutState" ion-button color="light" (click)="toggleFlyInOut()">Fly Out!</button>
+
+      <button [@fade]="fadeState" ion-button color="light" (click)="toggleFade()">Fade!</button>
+
+      <button [@bounce]="bounceState" ion-button color="light" (click)="toggleBounce()">Bounce!</button>
+    
 </ion-content>
+

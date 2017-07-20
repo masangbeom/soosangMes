@@ -18,6 +18,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ChartsModule,
     IonicModule.forRoot(MyApp),
 
