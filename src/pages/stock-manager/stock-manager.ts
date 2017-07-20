@@ -246,7 +246,7 @@ export class StockManagerPage {
       responsive: true,
       title: {
         display: true,
-        text: this.selectOn.trim() + '의 물품별 재고량'
+        text: this.warehouse.title + '의 물품별 재고량'
       },
       scales: {
         yAxes: [{

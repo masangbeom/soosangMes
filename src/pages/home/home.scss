@@ -9,7 +9,7 @@ page-home {
     }
     h1,
     p {
-      color: $gray;
+      color: $dark;
     }
     h1 {
       font-size: 3em;
@@ -37,6 +37,7 @@ page-home {
     border-style: inset;
     width: 50%;
     margin-left: 25%;
+    background: #f4f4f4;
   }
 
   .empty-lists{
@@ -46,7 +47,7 @@ page-home {
     text-align: center;
     h1,
     p {
-      color: $gray;
+      color: $dark;
     }
     h1 {
       font-size: 3em;
@@ -64,13 +65,13 @@ page-home {
     }
     button {
       font-size: 2em;
-      background-color: #6acdff;
       height: 100px;
       width: 300px;
+      background: #333;
     }
     button.activated,
     button:active {
-      background: $secondary-active;
+      background: #333;
     }
   }
   ion-input.input.input-md {

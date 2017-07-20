@@ -1,29 +1,95 @@
 page-factory-monitoring {
-  .select {
-    img {
-        padding-top: 50px;
-        padding-right: 50px;
-padding-left: 50px;
-      margin-bottom: 30px;
-    }
-    h3{
-        margin-top: 30px;
-        text-align: center;
-    }
-    ion-item{
-        margin-top: 10px;
-        margin-bottom: 10px;
-        text-align: center;
+  .selectFactory {
+    text-align: center;
+    ion-label {
+      font-size: 20px;
+      font-weight: bold;
     }
   }
-  div.input-wrapper{
-    border-style: outset;
+  .selectLine {
+    text-align: center;
+    ion-label {
+      font-size: 20px;
+      font-weight: bold;
+    }
   }
-
-button.button.button-md.button-default.button-default-md.button-full.button-full-md.button-md-light{
-    height: 50px;
-    margin-top: 20px;
+  .content-process {
+    position: absolute;
+    width: 100%;
+  }
+  .round-button {
+    display: block;
+    margin-right: 25px;
     margin-bottom: 20px;
-}
+    width: 130px;
+    height: 130px;
+    line-height: 50px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color: #f5f5f5;
+    text-align: center;
+    text-decoration: none;
+    background: #345cc0;
+    box-shadow: 0 0 3px gray;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .round-button:hover {
+    background: #488aff;
+  }
+  .round-button-arrow {
+    display: block;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-top: 38px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color: #f5f5f5;
+    text-align: center;
+    text-decoration: none;
+    background: #ffffff;
+    box-shadow: 0 0 4px #222;
+  }
+  .round-button-arrow:hover {
+    background: gray;
+  }
+  .round-button-arrow img {
+    display: block;
+    padding: 12%;
+    height: auto;
+  }
+  .round-button-end {
+      display:block;
+      margin-right: 25px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      width:130px;
+      height:130px;
+      line-height:50px;
+      border: 2px solid #f5f5f5;
+      border-radius: 50%;
+      color:#f5f5f5;
+      text-align:center;
+      //text-decoration:none;
+      background: #dd4b39;
+      box-shadow: 0 0 3px gray;
+      font-size:20px;
+      font-weight:bold;
+  }
+  .round-button-end:hover {
+      background: #f53d3d;
+  }
+  .content-process{
+    ion-card{
+      width: 97%;
+      background-image: url('../assets/images/Gray-background-3.jpg');
+      background-repeat: no-repeat;
+      background-size:cover;
+    }
+  }
 }
 

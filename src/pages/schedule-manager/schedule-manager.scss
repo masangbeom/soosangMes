@@ -1,6 +1,12 @@
 page-schedule-manager {
   .selectFactory {
-    width: 40%;
+    text-align: center;
+    ion-label {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  .selectLine{
     text-align: center;
     ion-label {
       font-size: 20px;
@@ -13,7 +19,6 @@ page-schedule-manager {
     ion-card {
       width: 100%;
       text-align: center;
-      border-style: outset;
       margin-top: 50px;
       ion-card-title{
           font-size: 20px;
@@ -27,13 +32,10 @@ page-schedule-manager {
     }
   }
     .factoryProcess{
-      width: 75%;
       position: absolute;
-      margin-left: 20%;
       ion-card {
       width: 100%;
       text-align: center;
-      border-style: outset;
       margin-top: 50px;
       ion-card-title{
           font-size: 20px;
@@ -42,14 +44,12 @@ page-schedule-manager {
     }
   }
   .lineProcess{
-      width: 75%;
+      width: 97%;
       position: absolute;
-      margin-left: 20%;
       ion-card {
       width: 100%;
       text-align: center;
-      border-style: outset;
-      margin-top: 50px;
+      margin-top: 20px;
       ion-card-title{
           font-size: 20px;
           font-weight: bold;

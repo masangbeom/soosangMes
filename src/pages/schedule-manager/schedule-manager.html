@@ -13,6 +13,9 @@
   <ion-fab top right edge>
         <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
   </ion-fab>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
   <div class="selectFactory">
     <ion-item>
       <ion-label>공장 선택</ion-label>
@@ -23,26 +26,37 @@
       </ion-select>
     </ion-item>
   </div>
+    </ion-col>
+<ion-col>
+  <div class="selectLine" *ngIf="selectOn.length > 0">
+    <ion-item>
+      <ion-label>라인 선택</ion-label>
+      <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectLine" (ionChange)="onLineChange(selectLine)">
+        <ion-option *ngFor="let line of factory.lines">
+          {{line.name}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  </ion-col>
+    </ion-row>
+  </ion-grid>  
 
-  <div class="view" *ngIf="selectOn.length > 0">
-    <div class="lineSelect">
-      <ion-card>
-        <ion-card-title>라인 선택</ion-card-title>
-        <button ion-button full color="dark" (click)="lineSelect(line.lineId)" *ngFor="let line of factory.lines">
-            {{line.name}}
-          </button>
-         <button ion-button full color="danger2" (click)="lineSelectCancel()">선택 취소</button>  
-      </ion-card>
-    </div>
-    <div class="factoryProcess" *ngIf="selectLine == 0">
+   <div class="view" *ngIf="selectOn.length > 0">
+    
+    <div class="factoryProcess" *ngIf="!selectLine || check == 0">
       <ion-card>
         <ion-card-title>{{factory.title}}의 생산 스케쥴 및 현황</ion-card-title>
       </ion-card>
     </div>
 
-    <div class="lineProcess" *ngIf="selectLine > 0">
+    <div class="lineProcess" *ngIf="selectLine && check == 1">
       <ion-card>
-        <ion-card-title>{{selectLine}}번 라인 진행률</ion-card-title>
+        <ion-card-title>{{line.lineId}}번 라인 진행률
+          <ion-fab top right>
+        <button ion-fab (click)="lineSelectStop()" color="danger2" icon-only><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+        </ion-card-title>
         <ion-card-content>
           <ion-grid>
             <ion-row>
@@ -68,6 +82,6 @@
         </ion-card-content>
       </ion-card>
     </div>
-  </div>
+  </div> 
 </ion-content>
 

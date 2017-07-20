@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FactoryMonitoringPage } from './../pages/factory-monitoring/factory-monitoring';
-import { LineMonitoringInfoPage } from './../pages/line-monitoring-info/line-monitoring-info';
 import { ScheduleManagerPage } from './../pages/schedule-manager/schedule-manager';
 import { PoorManagerPage } from './../pages/poor-manager/poor-manager';
 import { StockManagerPage } from './../pages/stock-manager/stock-manager';
@@ -25,7 +24,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MyApp,
     HomePage,
     FactoryMonitoringPage,
-    LineMonitoringInfoPage,
     ScheduleManagerPage,
     PoorManagerPage,
     StockManagerPage,
@@ -47,7 +45,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MyApp,
     HomePage,
     FactoryMonitoringPage,
-    LineMonitoringInfoPage,
     ScheduleManagerPage,
     PoorManagerPage,
     StockManagerPage,

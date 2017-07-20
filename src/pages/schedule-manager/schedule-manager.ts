@@ -9,8 +9,10 @@ export class ScheduleManagerPage {
   private factories: any;
   private selectOn: string = "";
   private factory: any;
-  private selectLine: number = 0;
+  private selectLine: string = "";
+  private line: any;
   private loadProgress: number = 80;
+  private check: number = 0;
 
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
@@ -86,9 +88,10 @@ export class ScheduleManagerPage {
   }
 
   onChange(selectOn){
-    this.selectLine = 0;
+    this.check = 0;
+    this.selectLine = '';
     let temp: string = selectOn.trim();
-      console.log(temp);
+      //console.log(temp);
     for(let i=0; i<this.factories.length; i++){
       if(temp == this.factories[i].title){
        let factory = {
@@ -97,18 +100,30 @@ export class ScheduleManagerPage {
           lines: this.factories[i].lines
         }
       this.factory = factory
-      console.log(this.factory)
+      //console.log(this.factory)
+      }
+    }
+  }
+  onLineChange(selectLine){
+    this.selectLine = selectLine;
+    this.check = 1;
+    console.log(this.selectLine);
+    let temp: string = selectLine.trim();
+    for(let i=0; i<this.factory.lines.length; i++){
+      if(temp == this.factory.lines[i].name){
+       let line = {
+          name: temp,
+          lineId: this.factory.lines[i].lineId
+        }
+        this.line = line;
+      console.log(this.line)
       }
     }
   }
 
-  lineSelect(lineId){
-    this.selectLine = lineId;
-    console.log(this.selectLine);
-  }
 
-  lineSelectCancel(){
-    this.selectLine = 0;
+  lineSelectStop(){
+    this.selectLine = '';
   }
 
   public chartClicked(e:any):void {
