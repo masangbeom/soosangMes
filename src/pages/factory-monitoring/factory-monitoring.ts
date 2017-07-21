@@ -1,6 +1,5 @@
 import { Component, ViewChild, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
-import '../../angular-horizontal-timeline.js'; 
 
 @Component({
   selector: 'page-factory-monitoring',
