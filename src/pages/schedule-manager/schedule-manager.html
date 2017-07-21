@@ -45,13 +45,13 @@
    <div class="view" *ngIf="selectOn.length > 0">
     
     <div class="factoryProcess" *ngIf="!selectLine || check == 0">
-      <ion-card>
+      <ion-card class="animated fadeInUp">
         <ion-card-title>{{factory.title}}의 생산 스케쥴 및 현황</ion-card-title>
       </ion-card>
     </div>
 
     <div class="lineProcess" *ngIf="selectLine && check == 1">
-      <ion-card>
+      <ion-card class="animated fadeInUp">
         <ion-card-title>{{line.lineId}}번 라인 진행률
           <ion-fab top right>
         <button ion-fab (click)="lineSelectStop()" color="danger2" icon-only><ion-icon name="close"></ion-icon></button>

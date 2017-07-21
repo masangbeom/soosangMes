@@ -3,60 +3,6 @@ import { NavController, NavParams, App } from 'ionic-angular';
 @Component({
   selector: 'page-factory-monitoring',
   templateUrl: 'factory-monitoring.html',
-  animations: [
-
-    trigger('flip', [
-      state('flipped', style({
-        transform: 'rotate(180deg)',
-        backgroundColor: '#f50e80'
-      })),
-      transition('* => flipped', animate('400ms ease'))
-    ]),
-
-    trigger('flyInOut', [
-      state('in', style({
-        transform: 'translate3d(0, 0, 0)'
-      })),
-      state('out', style({
-        transform: 'translate3d(150%, 0, 0)'
-      })),
-      transition('in => out', animate('200ms ease-in')),
-      transition('out => in', animate('200ms ease-out'))
-    ]),
-
-    trigger('fade', [
-      state('visible', style({
-        opacity: 1
-      })),
-      state('invisible', style({
-        opacity: 0.1
-      })),
-      transition('visible <=> invisible', animate('200ms linear'))
-    ]),
-
-    trigger('bounce', [
-      state('bouncing', style({
-        transform: 'translate3d(0,0,0)'
-      })),
-      transition('* => bouncing', [
-        animate('100ms ease-in', keyframes([
-          style({
-            transform: 'translate3d(0,0,0)',
-            offset: 0
-          }),
-          style({
-            transform: 'translate3d(-20px,0,0)',
-            offset: 0.5
-          }),
-          style({
-            transform: 'translate3d(0,0,0px)',
-            offset: 1
-          })
-        ]))
-      ])
-    ])
-
-  ]
 })
 export class FactoryMonitoringPage {
 
@@ -83,7 +29,7 @@ export class FactoryMonitoringPage {
     this.factories = [];
     let lines = [];
 
-    let processes = [{
+    let processes1 = [{
       p_code: 1,
       p_name: '설비제어',
       description: '설명',
@@ -191,28 +137,128 @@ export class FactoryMonitoringPage {
       description: '설명',
       pro_code: '제품 번호',
       l_code: 1
-    }, ]
+    }, ];
+
+    let processes2 = [{
+      p_code: 1,
+      p_name: '유산동',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 2,
+      p_name: 'line1p1p2',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 3,
+      p_name: '반광택',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 4,
+      p_name: 'line1p2p3',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 5,
+      p_name: '광택',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 6,
+      p_name: 'line1p3p4',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 7,
+      p_name: '사틴',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 8,
+      p_name: 'line1p4p5',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 9,
+      p_name: 'MP니켈',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 10,
+      p_name: 'line1p5p6',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 11,
+      p_name: '크롬',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 12,
+      p_name: 'line1p6p7',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 13,
+      p_name: '도금완료',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 14,
+      p_name: 'line1p7p8',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 15,
+      p_name: '디렉킹',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }, {
+      p_code: 16,
+      p_name: 'line1p8end',
+      description: '설명',
+      pro_code: '제품 번호',
+      l_code: 1
+    }]
+
+
 
 
     let line1 = {
       name: "Line 1",
       lineId: 1,
-      processes: processes
+      processes: processes1
     }
     let line2 = {
       name: "Line 2",
       lineId: 2,
-      processes: processes
+      processes: processes2
     }
     let line3 = {
       name: "Line 3",
       lineId: 3,
-      processes: processes
+      processes: processes1
     }
     let line4 = {
       name: "Line 4",
       lineId: 4,
-      processes: processes
+      processes: processes2
     }
 
     lines.push(line1);
@@ -247,37 +293,6 @@ export class FactoryMonitoringPage {
     this.factories.push(factory3);
     this.factories.push(factory4);
 
-  }
-
-  toggleFlip() {
-    this.flipState = (this.flipState == 'notFlipped') ? 'flipped' : 'notFlipped';
-  }
-
-  toggleFlyInOut() {
-
-    this.flyInOutState = 'out';
-
-    setInterval(() => {
-      this.flyInOutState = 'in';
-    }, 2000);
-
-  }
-
-  toggleFade() {
-    this.fadeState = (this.fadeState == 'visible') ? 'invisible' : 'visible';
-  }
-
-  toggleBounce() {
-
-    this.bounceInterval = setInterval(() => {
-      this.bounceState = (this.bounceState == 'noBounce') ? 'bouncing' : 'noBounce';
-    }, 20)
-
-
-  }
-
-  stopBounce() {
-    clearInterval(this.bounceInterval);
   }
 
   onChange(selectOn) {

@@ -6,7 +6,7 @@ page-manager-mode {
     text-align: center;
     h1,
     p {
-      color: $gray;
+      color: $dark;
     }
     h1 {
       font-size: 3em;
@@ -34,6 +34,7 @@ page-manager-mode {
     border-style: inset;
     width: 50%;
     margin-left: 25%;
+    background: #f4f4f4;
   }
   ion-fab{
     margin-top: 20px;

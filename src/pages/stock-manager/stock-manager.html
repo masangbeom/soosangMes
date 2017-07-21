@@ -33,7 +33,7 @@
       <ion-col>
         <div class="leak_alert" *ngIf="leakProducts">
           <ion-list>
-            <ion-card icon-left *ngFor="let leakProduct of leakProducts">
+            <ion-card class="animated fadeInUp" icon-left *ngFor="let leakProduct of leakProducts">
               <ion-icon name="ios-alert" color="danger"></ion-icon>[{{leakProduct.leakProductName}}]의 재고가 [{{leakProduct.leakNumber}}]만큼 부족합니다.
             </ion-card>
           </ion-list>
@@ -53,7 +53,7 @@
       <ion-col>
         <div class="product_info" *ngIf="product && selectProduct==1">
           <ion-row>
-            <ion-card>
+            <ion-card class="animated fadeInUp">
               <ion-card-header><strong>[{{product.name}}]</strong>의 재고 정보 <strong>[사용 : {{product.p_factory}} - {{product.p_line}}]</strong></ion-card-header>
               <div style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
                 <canvas baseChart height="110px" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
@@ -62,7 +62,7 @@
             </ion-card>
           </ion-row>
           <ion-row>
-            <ion-card>
+            <ion-card class="animated fadeInUp">
               <div padding>
                 <ion-segment [(ngModel)]="select_view">
                   <ion-segment-button value="daily">
