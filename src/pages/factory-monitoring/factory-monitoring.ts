@@ -1,11 +1,13 @@
-import { Component, trigger, state, style, transition, animate, keyframes } from '@angular/core';
+import { Component, ViewChild, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
+import '../../angular-horizontal-timeline.js'; 
+
 @Component({
   selector: 'page-factory-monitoring',
   templateUrl: 'factory-monitoring.html',
 })
 export class FactoryMonitoringPage {
-
+  @ViewChild('timeline') timelineRef;
   flipState: String = 'notFlipped';
   flyInOutState: String = 'in';
   fadeState: String = 'visible';
@@ -266,7 +268,6 @@ export class FactoryMonitoringPage {
     lines.push(line3);
     lines.push(line4);
 
-//    console.log(processes);
 
     let factory1 = {
       title: "Factory 1",
@@ -330,6 +331,7 @@ export class FactoryMonitoringPage {
       }
     }
     
+    
   }
 
   isEven(n) {
@@ -338,5 +340,6 @@ export class FactoryMonitoringPage {
   isLineEnd(n){
     return this.line.processes.length == n;
   }
+   
 }
 
