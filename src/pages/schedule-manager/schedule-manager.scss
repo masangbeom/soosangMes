@@ -32,15 +32,11 @@ page-schedule-manager {
     }
   }
     .factoryProcess{
-      position: absolute;
-      ion-card {
-      width: 100%;
-      text-align: center;
-      margin-top: 50px;
-      ion-card-title{
-          font-size: 20px;
-          font-weight: bold;
-      }
+      ion-card{
+      //background-image: url('../assets/images/Gray-background-3.jpg');
+      background: lightgray;
+      background-repeat: no-repeat;
+      background-size:cover;
     }
   }
   .lineProcess{
@@ -102,5 +98,8 @@ page-schedule-manager {
         background-color: map-get($colors, google);
     }
 }
+  div.gantt_default_corner div{
+    display: none;
+  }
 }
 

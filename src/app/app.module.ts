@@ -16,7 +16,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FormsModule } from '@angular/forms';
+import { DayPilotModule } from "daypilot-pro-angular";
+import { DataProvider } from '../providers/data';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    DayPilotModule,
+    FormsModule,
     BrowserAnimationsModule,
     ChartsModule,
     IonicModule.forRoot(MyApp),
@@ -54,9 +60,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   providers: [
     StatusBar,
-    // Vis,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider
   ]
 })
 export class AppModule {}

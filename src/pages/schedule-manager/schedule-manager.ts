@@ -1,11 +1,34 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { DayPilot, DayPilotGanttComponent } from "daypilot-pro-angular";
 
 @Component({
   selector: 'page-schedule-manager',
   templateUrl: 'schedule-manager.html',
 })
 export class ScheduleManagerPage {
+
+  config: any = {
+    startDate: "2017-01-01",
+    days: new DayPilot.Date().daysInMonth(),
+    cellWidthSpec: "Auto",
+    tasks: [
+      {start: "2014-01-05", end: "2017-01-07", id: 1, text: "Task 1", complete: 10},
+      {start: "2017-01-06", end: "2017-01-14", id: 2, text: "Task 2", complete: 20},
+      {start: "2017-01-07", end: "2017-01-23", id: 3, text: "Task 3", complete: 30},
+      {start: "2017-01-08", end: "2017-01-22", id: 4, text: "Task 4", complete: 40},
+      {start: "2017-01-09", end: "2017-01-21", id: 5, text: "Task 5", complete: 50},
+      {start: "2017-01-10", end: "2017-01-20", id: 6, text: "Task 6", complete: 60},
+      {start: "2014-01-05", end: "2017-01-07", id: 7, text: "Task 1", complete: 70},
+      {start: "2017-01-06", end: "2017-01-14", id: 8, text: "Task 2", complete: 80},
+      {start: "2017-01-07", end: "2017-01-23", id: 9, text: "Task 3", complete: 90},
+      {start: "2017-01-08", end: "2017-01-22", id: 10, text: "Task 4", complete: 100},
+      {start: "2017-01-08", end: "2017-01-22", id: 11, text: "Task 4", complete: 100},
+      {start: "2017-01-08", end: "2017-01-22", id: 12, text: "Task 4", complete: 100},
+    ]
+    
+  };
+
   private factories: any;
   private selectOn: string = "";
   private factory: any;
@@ -32,6 +55,16 @@ export class ScheduleManagerPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScheduleManagerPage');
+
+    for(let i=0; i<this.config.tasks.length; i++){
+    if(this.config.tasks[i].complete == 100){
+      this.config.tasks[i].complete += "<strong> (완료)</strong>"
+    }
+    this.config.tasks[i].text += " (" + this.config.tasks[i].start;
+    this.config.tasks[i].text += " ~ ";
+    this.config.tasks[i].text += this.config.tasks[i].end+ ") ";
+    }
+
     this.factories=[];
     let lines =[];
     let line1 = {
@@ -128,6 +161,7 @@ export class ScheduleManagerPage {
 
   public chartClicked(e:any):void {
     console.log(e);
+    this.randomize();
   }
  
   public chartHovered(e:any):void {

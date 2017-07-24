@@ -16,6 +16,48 @@ ion-icon {
   margin-top: 5px;
 }
 
+ion-label {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+ ion-item{
+  background:#222;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:auto;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+ion-item:hover{
+  background:#fff;
+  color:#222;
+}
+ion-item:before,ion-item:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #222;
+  transition:400ms ease all;
+}
+ion-item:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+ion-item:hover:before,ion-item:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
 .menu_toolbar {
   button{
   background:#222;

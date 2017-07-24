@@ -12,6 +12,88 @@
 
 <ion-content padding>
   <ion-fab top right edge>
-        <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
+    <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
   </ion-fab>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>공장 선택</ion-label>
+          <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
+            <ion-option *ngFor="let factory of factories">
+              {{factory.title}}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>시작 일자</ion-label>
+          <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="startDate" (ionChange)="onStartDateChange()"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>종료 일자</ion-label>
+          <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="endDate" (ionChange)="onEndDateChange()"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-card *ngIf="factory && startDate && endDate">
+  <ion-segment style="margin-left: 10px; width: 98.5%; background-color: #ffffff;" [(ngModel)]="select_view">
+    <ion-segment-button style="font-weight: bold;color: #000000;" value="background">
+      이력 관리
+    </ion-segment-button>
+    <ion-segment-button style="font-weight: bold;color: #000000;" value="trace">
+      추적 관리
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="select_view">
+    <div *ngSwitchCase="'background'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+          <ion-item>
+            <ion-label>라인 선택</ion-label>
+            <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectLine" (ionChange)="onLineChange(selectLine)">
+              <ion-option *ngFor="let line of factory.lines">
+                {{line.name}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+        <ion-row>
+
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div *ngSwitchCase="'trace'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item >
+            <ion-label>제품 선택</ion-label>
+            <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectProduct" (ionChange)="onProductChange(selectProduct)">
+              <ion-option *ngFor="let product of factory.products">
+                {{product.name}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+          </ion-col>
+          <ion-col></ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  </ion-card>
+
+  
 </ion-content>
+

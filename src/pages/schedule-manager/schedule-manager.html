@@ -11,42 +11,43 @@
 
 <ion-content padding>
   <ion-fab top right edge>
-        <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
+    <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
   </ion-fab>
   <ion-grid>
     <ion-row>
       <ion-col>
-  <div class="selectFactory">
-    <ion-item>
-      <ion-label>공장 선택</ion-label>
-      <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
-        <ion-option *ngFor="let factory of factories">
-          {{factory.title}}
-        </ion-option>
-      </ion-select>
-    </ion-item>
-  </div>
-    </ion-col>
-<ion-col>
-  <div class="selectLine" *ngIf="selectOn.length > 0">
-    <ion-item>
-      <ion-label>라인 선택</ion-label>
-      <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectLine" (ionChange)="onLineChange(selectLine)">
-        <ion-option *ngFor="let line of factory.lines">
-          {{line.name}}
-        </ion-option>
-      </ion-select>
-    </ion-item>
-  </div>
-  </ion-col>
+        <div class="selectFactory">
+          <ion-item>
+            <ion-label>공장 선택</ion-label>
+            <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
+              <ion-option *ngFor="let factory of factories">
+                {{factory.title}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="selectLine" *ngIf="selectOn.length > 0">
+          <ion-item>
+            <ion-label>라인 선택</ion-label>
+            <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectLine" (ionChange)="onLineChange(selectLine)">
+              <ion-option *ngFor="let line of factory.lines">
+                {{line.name}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
     </ion-row>
-  </ion-grid>  
+  </ion-grid>
 
-   <div class="view" *ngIf="selectOn.length > 0">
-    
-    <div class="factoryProcess" *ngIf="!selectLine || check == 0">
+  <div class="view" *ngIf="selectOn.length > 0">
+
+    <div padding class="factoryProcess" *ngIf="!selectLine || check == 0">
       <ion-card class="animated fadeInUp">
-        <ion-card-title>{{factory.title}}의 생산 스케쥴 및 현황</ion-card-title>
+        <ion-card-title padding style="background-color: #383838;color: #ffffff;font-weight: bold;font-size: 30px;">{{factory.title}}의 생산 스케쥴 및 현황</ion-card-title>
+        <daypilot-gantt padding [config]="config"></daypilot-gantt>
       </ion-card>
     </div>
 
@@ -54,8 +55,8 @@
       <ion-card class="animated fadeInUp">
         <ion-card-title>{{line.lineId}}번 라인 진행률
           <ion-fab top right>
-        <button ion-fab (click)="lineSelectStop()" color="danger2" icon-only><ion-icon name="close"></ion-icon></button>
-  </ion-fab>
+            <button ion-fab (click)="lineSelectStop()" color="danger2" icon-only><ion-icon name="close"></ion-icon></button>
+          </ion-fab>
         </ion-card-title>
         <ion-card-content>
           <ion-grid>
@@ -82,6 +83,6 @@
         </ion-card-content>
       </ion-card>
     </div>
-  </div> 
+  </div>
 </ion-content>
 

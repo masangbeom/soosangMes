@@ -1,10 +1,6 @@
 page-factory-monitoring {
   .selectFactory {
     text-align: center;
-    ion-label {
-      font-size: 20px;
-      font-weight: bold;
-    }
   }
   .selectLine {
     text-align: center;
@@ -90,16 +86,12 @@ page-factory-monitoring {
   }
   .content-process{
     ion-card{
-      width: 97%;
+      width: 96.3%;
       //background-image: url('../assets/images/Gray-background-3.jpg');
       background: lightgray;
       background-repeat: no-repeat;
       background-size:cover;
       
-    }
-    ion-card.ng-enter {
-      -webkit-animation: fadeInLeft 1s;
-    animation: fadeInLeft 1s;
     }
   }
 }
