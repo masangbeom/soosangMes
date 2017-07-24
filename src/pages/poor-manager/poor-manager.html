@@ -30,13 +30,13 @@
       <ion-col>
         <ion-item>
           <ion-label>시작 일자</ion-label>
-          <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="startDate" (ionChange)="onStartDateChange()"></ion-datetime>
+          <ion-datetime min="2017" doneText="확인" cancelText="취소" displayFormat="YYYY/MM/DD" [(ngModel)]="startDate" (ionChange)="onStartDateChange()"></ion-datetime>
         </ion-item>
       </ion-col>
       <ion-col>
         <ion-item>
           <ion-label>종료 일자</ion-label>
-          <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="endDate" (ionChange)="onEndDateChange()"></ion-datetime>
+          <ion-datetime min="2017" okText="확인" cancelText="취소" displayFormat="YYYY/MM/DD" [(ngModel)]="endDate" (ionChange)="onEndDateChange()"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>

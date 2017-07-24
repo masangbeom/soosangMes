@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { DayPilotModule } from "daypilot-pro-angular";
 import { DataProvider } from '../providers/data';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { DataProvider } from '../providers/data';
     BrowserModule,
     DayPilotModule,
     FormsModule,
+    HttpModule,
     BrowserAnimationsModule,
     ChartsModule,
     IonicModule.forRoot(MyApp),

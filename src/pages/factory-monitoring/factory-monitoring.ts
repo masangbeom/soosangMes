@@ -1,5 +1,5 @@
 import { DataProvider } from './../../providers/data';
-import { Component, ViewChild} from '@angular/core';
+import { Component} from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
 
 @Component({
@@ -22,12 +22,14 @@ export class FactoryMonitoringPage {
 
   ionViewDidLoad() {
     this.factories = this.dataProvider.sampleFactories();
+   // this.dataProvider.createLinesData();
+    //this.dataProvider.createFactoriesData();
     console.log('ionViewDidLoad FactoryMonitoringPage');
   }
 
   onChange(selectOn) {
     this.check = 0;
-    this.selectLine = '';
+    this.selectLine = ''; 
     let temp: string = selectOn.trim();
     console.log(temp);
     for (let i = 0; i < this.factories.length; i++) {

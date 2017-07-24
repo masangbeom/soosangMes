@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataProvider {
 
-  constructor() {
-    console.log('Hello DataProvider Provider');
+  constructor(public http:Http) {
   }
   
   sampleFactories(){
@@ -437,4 +437,36 @@ export class DataProvider {
     return products;
   }
 
+  createFactoriesData(){
+    this.http.get('http://localhost:8081/factories-data.php')
+      .map(res => res.json())
+      .subscribe(factories => {
+        console.log(factories);
+      })
+  }
+  // createFactoryData(selectOn, factories){
+  //   let temp: string = selectOn.trim();
+  //   console.log(temp);
+  //   for (let i = 0; i < factories.length; i++) {
+  //     if (temp == factories[i].f_name) {
+  //       let factory = {
+  //         f_code: factories[i].f_code,
+  //         f_name: temp,
+  //         description: factories[i].description,
+  //         lines: this.createLinesData(),
+  //       }
+  //       console.log(factory);
+  //       return factory;
+  //     }
+  //   }
+  // }
+
+  createLinesData(){
+    this.http.get('http://localhost:8081/lines-data.php')
+      .map(res => res.json())
+      .subscribe(lines => {
+        console.log(lines);
+      })
+  }
+  
 }
