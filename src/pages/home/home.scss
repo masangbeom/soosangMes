@@ -22,7 +22,7 @@ page-home {
       }
     }
     p {
-      font-size: 1.125em;
+      font-size: 1.55em;
       width: 70vw;
       margin-left: auto;
       margin-right: auto;
@@ -49,6 +49,7 @@ page-home {
     text-align: center;
     h1,
     p {
+      font-style: bold;
       color: $dark;
     }
     h1 {
@@ -60,13 +61,14 @@ page-home {
       }
     }
     p {
-      font-size: 1.125em;
+      font-size: 1.55em;
+      font-style: bold;
       width: 70vw;
       margin-left: auto;
       margin-right: auto;
     }
     button{
-  background:#222;
+  background:#345cc0;
   color:#fff;
   border:none;
   position:relative;
@@ -79,7 +81,7 @@ page-home {
 }
 button:hover{
   background:#fff;
-  color:#222;
+  color:#345cc0;
 }
 button:before,button:after{
   content:'';
@@ -88,7 +90,7 @@ button:before,button:after{
   right:0;
   height:2px;
   width:0;
-  background: #222;
+  background: #345cc0;
   transition:400ms ease all;
 }
 button:after{
@@ -110,6 +112,12 @@ button:hover:before,button:hover:after{
     width: 50%;
     margin-left: 25%;
   }
-  
+
+  ion-content{
+    background-image: url('../assets/images/factory.gif');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
 }
 

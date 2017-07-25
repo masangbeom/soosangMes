@@ -64,7 +64,7 @@ ion-item:hover:before,ion-item:hover:after{
 
 .menu_toolbar {
   button{
-  background:#222;
+  background:#345cc0;
   color:#fff;
   border:none;
   position:relative;
@@ -77,7 +77,7 @@ ion-item:hover:before,ion-item:hover:after{
 }
 button:hover{
   background:#fff;
-  color:#222;
+  color:#345cc0;
 }
 button:before,button:after{
   content:'';
@@ -86,7 +86,7 @@ button:before,button:after{
   right:0;
   height:2px;
   width:0;
-  background: #222;
+  background: #345cc0;
   transition:400ms ease all;
 }
 button:after{
@@ -108,7 +108,7 @@ button:hover:before,button:hover:after{
   }
 }
 ion-content{
-    background-image: url('../assets/images/Gray-background-3.jpg');
+    background-image: url('../assets/images/lightblue.jpg');
     background-repeat: no-repeat;
     background-size:cover;
 }

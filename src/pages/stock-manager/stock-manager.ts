@@ -10,6 +10,9 @@ export class StockManagerPage {
 
   private select_view: any = "daily";
 
+  public chartType1: string = 'bar';
+  public chartType2: string = 'line';
+  
   private warehouses: any;
   private selectOn: any;
   private selectProduct: number = 0;
@@ -43,6 +46,11 @@ export class StockManagerPage {
   // lineChart
   public lineChartData: Array < any > = [{
       data: [28, 48, 40, 19, 86, 27],
+      label: 'Series A'
+    },
+  ];
+  public lineChartData2: Array < any > = [{
+      data: [28, 38, 10, 49, 23, 27],
       label: 'Series A'
     },
   ];
@@ -179,12 +187,54 @@ export class StockManagerPage {
     }
     
     }
-    this.lineChartData[0].data = this.barChartData[0].data;
-    this.lineChartLabels = this.barChartLabels;
+    this.randomize1();
+    // this.lineChartData[0].data = this.barChartData[0].data;
+    // this.lineChartLabels = this.barChartLabels;
   }
 
   public chartHovered(e: any): void {
     console.log(e);
+  }
+
+  public randomize1():void {
+    // Only Change 3 values
+    let data = [
+      Math.round(Math.random() * 100),
+      59,
+      80,
+      (Math.random() * 100),
+      56,
+      (Math.random() * 100),
+      40];
+    let clone = JSON.parse(JSON.stringify(this.lineChartData));
+    clone[0].data = data;
+    this.lineChartData = clone;
+    /**
+     * (My guess), for Angular to recognize the change in the dataset
+     * it has to change the dataset variable directly,
+     * so one way around it, is to clone the data, change it and then
+     * assign it;
+     */
+  }
+    public randomize2():void {
+    // Only Change 3 values
+    let data = [
+      Math.round(Math.random() * 100),
+      59,
+      80,
+      (Math.random() * 100),
+      56,
+      (Math.random() * 100),
+      40];
+    let clone = JSON.parse(JSON.stringify(this.lineChartData2));
+    clone[0].data = data;
+    this.lineChartData2 = clone;
+    /**
+     * (My guess), for Angular to recognize the change in the dataset
+     * it has to change the dataset variable directly,
+     * so one way around it, is to clone the data, change it and then
+     * assign it;
+     */
   }
 
 

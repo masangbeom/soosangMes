@@ -33,9 +33,9 @@
       <ion-col>
         <div class="leak_alert" *ngIf="leakProducts && selectOn">
           <ion-list>
-            <ion-card class="animated fadeInUp" icon-left *ngFor="let leakProduct of leakProducts">
+            <ion-item style="width: 97.5%; height: 80px; margin-left: 10px; margin-top: 10px" class="animated fadeInUp" icon-left *ngFor="let leakProduct of leakProducts">
               <ion-icon name="ios-alert" color="danger"></ion-icon>[{{leakProduct.leakProductName}}]의 재고가 [{{leakProduct.leakNumber}}]만큼 부족합니다.
-            </ion-card>
+            </ion-item>
           </ion-list>
         </div>
           <ion-card *ngIf="selectOn" style="margin-top: 30px;">
@@ -63,22 +63,22 @@
             <ion-card class="animated fadeInUp">
               <div padding>
                 <ion-segment style="margin-left: 10px; width: 98.5%; background-color: #ffffff;" [(ngModel)]="select_view">
-                  <ion-segment-button style="font-weight: bold;color: #000000;" value="daily">
+                  <ion-segment-button (click)="randomize2()" style="font-weight: bold;color: #000000;" value="daily">
                     일별
                   </ion-segment-button>
-                  <ion-segment-button style="font-weight: bold;color: #000000;" value="monthly">
+                  <ion-segment-button (click)="randomize2()" style="font-weight: bold;color: #000000;" value="monthly">
                     월별
                   </ion-segment-button>
                 </ion-segment>
               </div>
               <div [ngSwitch]="select_view">
                 <div *ngSwitchCase="'daily'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
-                  <canvas baseChart height="110px" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
-                    [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+                  <canvas baseChart height="110px" [datasets]="lineChartData2" [labels]="lineChartLabels" [options]="lineChartOptions"
+                    [legend]="lineChartLegend" [chartType]="chartType2"></canvas>
                 </div>
                 <div *ngSwitchCase="'monthly'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
-                  <canvas baseChart height="110px" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
-                    [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+                  <canvas baseChart height="110px" [datasets]="lineChartData2" [labels]="lineChartLabels" [options]="lineChartOptions"
+                    [legend]="lineChartLegend" [chartType]="chartType1"></canvas>
                 </div>
               </div>
             </ion-card>
