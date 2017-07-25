@@ -16,6 +16,10 @@ ion-icon {
   margin-top: 5px;
 }
 
+ion-card{
+  border: solid;
+}
+
 ion-label {
       font-size: 20px;
       font-weight: bold;
@@ -45,7 +49,7 @@ ion-item:before,ion-item:after{
   height:2px;
   width:0;
   background: #222;
-  transition:400ms ease all;
+  transition:800ms ease all;
 }
 ion-item:after{
   right:inherit;

@@ -31,15 +31,14 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div class="leak_alert" *ngIf="leakProducts">
+        <div class="leak_alert" *ngIf="leakProducts && selectOn">
           <ion-list>
             <ion-card class="animated fadeInUp" icon-left *ngFor="let leakProduct of leakProducts">
               <ion-icon name="ios-alert" color="danger"></ion-icon>[{{leakProduct.leakProductName}}]의 재고가 [{{leakProduct.leakNumber}}]만큼 부족합니다.
             </ion-card>
           </ion-list>
         </div>
-        <div class="stock_chart">
-          <ion-card>
+          <ion-card *ngIf="selectOn" style="margin-top: 30px;">
             <div style="display: block; padding-left: 10px;" *ngFor="let warehouse of warehouses">
               <div *ngIf="selectOn == warehouse.title">
                 <ion-card-header>{{warehouse.title}}</ion-card-header>
@@ -48,7 +47,6 @@
               </div>
             </div>
           </ion-card>
-        </div>
       </ion-col>
       <ion-col>
         <div class="product_info" *ngIf="product && selectProduct==1">

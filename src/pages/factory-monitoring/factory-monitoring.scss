@@ -9,10 +9,13 @@ page-factory-monitoring {
       font-weight: bold;
     }
   }
-  .content-process {
-    position: absolute;
-    width: 100%;
-  }
+  // .content-process {
+  //   position: absolute;
+  //   width: 100%;
+  //   ion-card{
+  //     background-image: url("../assets/images/run.gif");
+  //   }
+  // }
   .round-button {
     display: block;
     margin-right: 25px;
@@ -22,17 +25,18 @@ page-factory-monitoring {
     line-height: 50px;
     border: 5px dashed black;
     border-radius: 50%;
-    color: #f5f5f5;
+    color: black;
     text-align: center;
     text-decoration: none;
-    background: #345cc0;
+    //background: lightblue;
     box-shadow: 0 0 5px black;
     font-size: 18px;
     font-weight: bold;
     transition:800ms ease all;
   }
+  
   .round-button:hover {
-    background: #488aff;
+    background: #ffffff;
   }
   .round-button-arrow {
     display: block;
@@ -45,13 +49,13 @@ page-factory-monitoring {
     line-height: 50px;
     border: 2px solid black;
     border-radius: 50%;
-    color: #f5f5f5;
+    color: black;
     text-align: center;
     text-decoration: none;
     background: #ffffff;
     box-shadow: 0 0 4px black;
     cursor:pointer;
-  transition:1200ms ease all;
+  transition:1000ms ease all;
   outline:none;
   }
   .round-button-arrow:hover {
@@ -72,26 +76,74 @@ page-factory-monitoring {
       line-height:50px;
       border: 5px solid black;
       border-radius: 50%;
-      color:#f5f5f5;
+      color:black;
       text-align:center;
       text-decoration:none;
       background: #dd2551;
       box-shadow: 0 0 5px black;
       font-size:18px;
       font-weight:bold;
-      transition:2000ms ease all;
+      transition:1000ms ease all;
   }
   .round-button-end:hover {
-      background: #f53d33;
+      background: #ffffff;
+      
+  }
+    .round-button-run {
+    display: block;
+    text-align: center;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    margin-top: 6px;
+    width: 130px;
+    height: 130px;
+    line-height: 50px;
+    border: 2px solid black;
+    border-radius: 50%;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    background: #344557;
+    box-shadow: 0 0 4px black;
+    cursor:pointer;
+  transition:1200ms ease all;
+  outline:none;
+  }
+  .round-button-run img {
+    display: block;
+    padding: 12%;
+    height: auto;
   }
   .content-process{
     ion-card{
-      width: 96.3%;
-      //background-image: url('../assets/images/Gray-background-3.jpg');
-      background: lightgray;
-      background-repeat: no-repeat;
-      background-size:cover;
-      
+      width: 98.7%;
+    }
+  }
+  .table_attribute {
+    ion-col {
+      border-style: solid;
+       text-align: center;
+      p {
+        border-style: solid;
+        border-top-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+        //border-bottom-width: 1px;
+        margin-top: 5px;
+      }
+      strong {
+        font-size: 15px;
+        border-style: solid;
+        border-top-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+        //border-bottom-width: 1px;
+        //letter-spacing: 5px;
+        //font-variant: small-caps;
+        font-style: italic;
+        margin-bottom: 15px;
+        color: #535f99;
+      }
     }
   }
 }

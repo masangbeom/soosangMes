@@ -45,16 +45,25 @@
   <div class="view" *ngIf="selectOn.length > 0">
 
     <div padding class="factoryProcess" *ngIf="!selectLine || check == 0">
-      <ion-card class="animated fadeInUp">
+      <ion-card style="border: solid;" class="animated fadeInUp">
         <ion-card-title padding style="background-color: #383838;color: #ffffff;font-weight: bold;font-size: 30px;">{{factory.title}}의 생산 스케쥴 및 현황</ion-card-title>
         <daypilot-gantt padding [config]="config"></daypilot-gantt>
+      </ion-card>
+
+      <ion-card>
+      <ion-list>
+      <ion-item style="height: 80px" *ngFor="let completeTask of completeTasks">
+        {{completeTask.text}} 의 스케쥴이 완료되었습니다.
+       <button ion-button (click)="lineSelectStop()" color="danger2">목록에서 제거</button>
+      </ion-item>
+      </ion-list>
       </ion-card>
     </div>
 
     <div class="lineProcess" *ngIf="selectLine && check == 1">
       <ion-card class="animated fadeInUp">
         <ion-card-title>{{line.lineId}}번 라인 진행률
-          <ion-fab top right>
+          <ion-fab mini top right>
             <button ion-fab (click)="lineSelectStop()" color="danger2" icon-only><ion-icon name="close"></ion-icon></button>
           </ion-fab>
         </ion-card-title>
@@ -70,13 +79,15 @@
                 </div>
               </ion-col>
               <ion-col>
-                <h2>[실제 생산량 / 목표 생산량]</h2>
+                <div style="margin-top: 80px;">
+                <ion-label>[실제 생산량 / 목표 생산량]</ion-label>
                 <p>일간 생산률</p>
                 <progress-bar [progress]="loadProgress"></progress-bar>
                 <p>주간 생산률</p>
                 <progress-bar [progress]="loadProgress"></progress-bar>
                 <p>월간 생산률</p>
                 <progress-bar [progress]="loadProgress"></progress-bar>
+                </div>
               </ion-col>
             </ion-row>
           </ion-grid>

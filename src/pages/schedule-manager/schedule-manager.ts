@@ -1,3 +1,4 @@
+import { DataProvider } from './../../providers/data';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DayPilot, DayPilotGanttComponent } from "daypilot-pro-angular";
@@ -13,22 +14,21 @@ export class ScheduleManagerPage {
     days: new DayPilot.Date().daysInMonth(),
     cellWidthSpec: "Auto",
     tasks: [
-      {start: "2014-01-05", end: "2017-01-07", id: 1, text: "Task 1", complete: 10},
-      {start: "2017-01-06", end: "2017-01-14", id: 2, text: "Task 2", complete: 20},
-      {start: "2017-01-07", end: "2017-01-23", id: 3, text: "Task 3", complete: 30},
-      {start: "2017-01-08", end: "2017-01-22", id: 4, text: "Task 4", complete: 40},
-      {start: "2017-01-09", end: "2017-01-21", id: 5, text: "Task 5", complete: 50},
-      {start: "2017-01-10", end: "2017-01-20", id: 6, text: "Task 6", complete: 60},
-      {start: "2014-01-05", end: "2017-01-07", id: 7, text: "Task 1", complete: 70},
-      {start: "2017-01-06", end: "2017-01-14", id: 8, text: "Task 2", complete: 80},
-      {start: "2017-01-07", end: "2017-01-23", id: 9, text: "Task 3", complete: 90},
-      {start: "2017-01-08", end: "2017-01-22", id: 10, text: "Task 4", complete: 100},
-      {start: "2017-01-08", end: "2017-01-22", id: 11, text: "Task 4", complete: 100},
-      {start: "2017-01-08", end: "2017-01-22", id: 12, text: "Task 4", complete: 100},
+      {start: "2014-01-05", end: "2017-01-07", id: 1, text: "물품1 생산", complete: 40},
+      {start: "2017-01-06", end: "2017-01-14", id: 2, text: "물품1 생산", complete: 100},
+      {start: "2017-01-07", end: "2017-01-23", id: 3, text: "물품1 생산", complete: 30},
+      {start: "2017-01-08", end: "2017-01-22", id: 4, text: "물품1 생산", complete: 60},
+      {start: "2017-01-09", end: "2017-01-21", id: 5, text: "물품1 생산", complete: 50},
+      {start: "2017-01-10", end: "2017-01-20", id: 6, text: "물품1 생산", complete: 100},
+      {start: "2014-01-05", end: "2017-01-07", id: 7, text: "물품1 생산", complete: 70},
+      {start: "2017-01-06", end: "2017-01-14", id: 8, text: "물품1 생산", complete: 80},
+      {start: "2017-01-07", end: "2017-01-23", id: 9, text: "물품1 생산", complete: 90},
+      {start: "2017-01-08", end: "2017-01-22", id: 10, text: "물품1 생산", complete: 100},
     ]
     
   };
 
+  private completeTasks: any = [];
   private factories: any;
   private selectOn: string = "";
   private factory: any;
@@ -50,7 +50,7 @@ export class ScheduleManagerPage {
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataProvider: DataProvider) {
   }
 
   ionViewDidLoad() {
@@ -59,65 +59,14 @@ export class ScheduleManagerPage {
     for(let i=0; i<this.config.tasks.length; i++){
     if(this.config.tasks[i].complete == 100){
       this.config.tasks[i].complete += "<strong> (완료)</strong>"
+      this.completeTasks.push(this.config.tasks[i]);
     }
     this.config.tasks[i].text += " (" + this.config.tasks[i].start;
     this.config.tasks[i].text += " ~ ";
     this.config.tasks[i].text += this.config.tasks[i].end+ ") ";
     }
 
-    this.factories=[];
-    let lines =[];
-    let line1 = {
-      name: "Line 1",
-      lineId: 1
-    }
-    let line2 = {
-      name: "Line 2",
-      lineId: 2
-    }  
-    let line3 = {
-      name: "Line 3",
-      lineId: 3
-    }  
-    let line4 = {
-      name: "Line 4",
-      lineId: 4
-    }
-    lines.push(line1);
-    lines.push(line2);
-    lines.push(line3);    
-    lines.push(line4);   
-
-    let lines2 =[];
-    lines2.push(line2);
-    lines2.push(line4);
-    
-
-
-    let factory1 = {
-      title: "Factory 1",
-      description: "공장 설명",
-      lines: lines
-    }
-    let factory2 = {
-      title: "Factory 2",
-      description: "공장 설명",
-      lines: lines
-    }
-    let factory3 = {
-      title: "Factory 3",
-      description: "공장 설명",
-      lines: lines
-    }
-    let factory4 = {
-      title: "Factory 4",
-      description: "공장 설명",
-      lines: lines2
-    }
-    this.factories.push(factory1);
-    this.factories.push(factory2);
-    this.factories.push(factory3);
-    this.factories.push(factory4);
+    this.factories= this.dataProvider.sampleFactories();
   }
 
   onChange(selectOn){

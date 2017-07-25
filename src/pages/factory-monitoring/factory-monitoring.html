@@ -45,113 +45,219 @@
     </ion-row>
   </ion-grid>
   <div class="content-process" *ngIf="selectLine">
-    <ion-card padding class="animated fadeInUp">
-    <ion-grid>
-      <ion-row>
-        <div *ngFor="let process of line.processes">
-      <button (click)="processClick(process)" *ngIf="!isEven(process.p_code)" class="round-button" >{{process.p_name}}</button>
-      <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && !isLineEnd(process.p_code)" class="round-button-arrow" >
-        <img src="../assets/icon/right-arrow1.png"/>
-      </button>
-      <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && isLineEnd(process.p_code)" class="round-button-arrow" >
-        <img src="../assets/icon/right-arrow1.png"/>
-      </button>
-      </div>
-  
-      <button (click)="processClick(process)" class="round-button-end" >라인 종료</button>
+    <ion-card *ngIf="lineRunning" style="background-image: url('../assets/images/run.gif'); background-size: contain; background-position-x: -130px;" padding
+      class="animated fadeInUp">
 
-      </ion-row>
-    </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <div *ngFor="let process of line.processes">
+            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code)" class="round-button">{{process.p_name}}</button>
+            <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && !isLineEnd(process.p_code)" class="round-button-arrow">
+        <img src="../assets/icon/right-arrow1.png"/>
+      </button>
+            <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && isLineEnd(process.p_code)" class="round-button-arrow">
+        <img src="../assets/icon/right-arrow1.png"/>
+      </button>
+          </div>
+
+          <button (click)="processClick(process)" class="round-button-end">라인 종료</button>
+
+        </ion-row>
+      </ion-grid>
     </ion-card>
 
-    <ion-card *ngIf="!process" style="background: #f4f4f4" padding class="animated fadeInUp">
-                <ion-segment style="margin-left: 10px; width: 98.5%; background-color: #ffffff;" [(ngModel)]="select_view">
-                  <ion-segment-button style="font-weight: bold;color: #000000;" value="timely">
-                    시간별
-                  </ion-segment-button>
-                  <ion-segment-button style="font-weight: bold;color: #000000;" value="daily">
-                    일별
-                  </ion-segment-button>
-                  <ion-segment-button style="font-weight: bold;color: #000000;" value="monthly">
-                    월별
-                  </ion-segment-button>
-                  <ion-segment-button style="font-weight: bold;color: #000000;" value="quarterly">
-                    분기별
-                  </ion-segment-button>
-                </ion-segment>  
-              <div [ngSwitch]="select_view">
-                <div *ngSwitchCase="'timely'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
-                  <ion-grid>
-                    <ion-row>
-                    <ion-col>
-                      1
-                    </ion-col>
-                    <ion-col>
-                      2
-                    </ion-col>
-                    <ion-col>
-                      3
-                    </ion-col>
-                    </ion-row>
-                  </ion-grid>
+    <ion-card *ngIf="!lineRunning" style="background: #344557; background-repeat: no-repeat; background-size:contain; background-position: right;"
+      padding class="animated fadeInUp">
+
+      <ion-grid>
+        <ion-row>
+          <div *ngFor="let process of line.processes">
+            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code) && !process.p_error" class="round-button">{{process.p_name}}</button>
+            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code) && process.p_error" class="round-button" style="background-image: url('../assets/images/stop.png'); background-size:contain;">{{process.p_name}}</button>
+            <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && !isLineEnd(process.p_code)  && process.p_error"
+              class="round-button-arrow" style="background-image: url('../assets/images/stop.png'); background-size:contain;">
+        <img src="../assets/icon/right-arrow1.png"/>
+      </button>
+            <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && !isLineEnd(process.p_code) && !process.p_error"
+              class="round-button-arrow">
+        <img src="../assets/icon/right-arrow1.png"/>
+      </button>
+            <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && isLineEnd(process.p_code)" class="round-button-arrow">
+        <img src="../assets/icon/right-arrow1.png"/>
+      </button>
+          </div>
+
+          <button (click)="processClick(process)" class="round-button-end">라인 종료</button>
+
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <ion-card *ngIf="!process && selectLine" style="background: #f4f4f4" padding class="animated fadeInUp">
+      <ion-segment style="margin-left: 10px; width: 98.5%; background-color: #ffffff;" [(ngModel)]="select_view">
+        <ion-segment-button style="font-weight: bold;color: #000000;" value="timely">
+          시간별
+        </ion-segment-button>
+        <ion-segment-button style="font-weight: bold;color: #000000;" value="daily">
+          일별
+        </ion-segment-button>
+        <ion-segment-button style="font-weight: bold;color: #000000;" value="monthly">
+          월별
+        </ion-segment-button>
+        <ion-segment-button style="font-weight: bold;color: #000000;" value="quarterly">
+          분기별
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="select_view">
+        <div *ngSwitchCase="'timely'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label>생산량 및 불량품</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
                 </div>
-                <div *ngSwitchCase="'daily'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
-                  <ion-grid>
-                    <ion-row>
-                    <ion-col>
-                      1
-                    </ion-col>
-                    <ion-col>
-                      2
-                    </ion-col>
-                    <ion-col>
-                      3
-                    </ion-col>
-                    </ion-row>
-                  </ion-grid>
+              </ion-col>
+              <ion-col>
+                <ion-label>사이클 타임</ion-label>
+                <div style="display: block;">
+                  <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                    [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
                 </div>
-                  <div *ngSwitchCase="'monthly'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
-                    <ion-grid>
-                    <ion-row>
-                    <ion-col>
-                      1
-                    </ion-col>
-                    <ion-col>
-                      2
-                    </ion-col>
-                    <ion-col>
-                      3
-                    </ion-col>
-                    </ion-row>
-                  </ion-grid>
+              </ion-col>
+              <ion-col>
+                <ion-label>재공 재고</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
                 </div>
-                  <div *ngSwitchCase="'quarterly'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
-                    <ion-grid>
-                    <ion-row>
-                    <ion-col>
-                      1
-                    </ion-col>
-                    <ion-col>
-                      2
-                    </ion-col>
-                    <ion-col>
-                      3
-                    </ion-col>
-                    </ion-row>
-                  </ion-grid>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div *ngSwitchCase="'daily'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
+           <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label>생산량 및 불량품</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
                 </div>
-              </div>
+              </ion-col>
+              <ion-col>
+                <ion-label>사이클 타임</ion-label>
+                <div style="display: block;">
+                  <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                    [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </ion-col>
+              <ion-col>
+                <ion-label>재공 재고</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div *ngSwitchCase="'monthly'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
+           <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label>생산량 및 불량품</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </ion-col>
+              <ion-col>
+                <ion-label>사이클 타임</ion-label>
+                <div style="display: block;">
+                  <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                    [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </ion-col>
+              <ion-col>
+                <ion-label>재공 재고</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div *ngSwitchCase="'quarterly'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
+           <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label>생산량 및 불량품</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </ion-col>
+              <ion-col>
+                <ion-label>사이클 타임</ion-label>
+                <div style="display: block;">
+                  <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                    [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </ion-col>
+              <ion-col>
+                <ion-label>재공 재고</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
 
     </ion-card>
 
     <ion-card *ngIf="process">
       <ion-fab right style="margin-right: 30px">
         <button ion-fab (click)="processSelectStop()" color="danger2" icon-only><ion-icon name="close"></ion-icon></button>
-          </ion-fab>
-
-
+      </ion-fab>
+      <button ion-button (click)="plustable()">plus</button>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>{{process.p_name}}</ion-label>
+            <div class="table_attribute">
+              <ion-row>
+                <ion-col>
+                  <strong>Product</strong>
+                  <p *ngFor="let table of tables" [innerHtml]="table.product"></p>
+                </ion-col>
+                <ion-col>
+                  <strong>Payment Date</strong>
+                  <p *ngFor="let table of tables" [innerHtml]="table.date"></p>
+                </ion-col>
+                <ion-col>
+                  <strong>Status</strong>
+                  <p *ngFor="let table of tables" [innerHtml]="table.status"></p>
+                </ion-col>
+              </ion-row>
+              </div>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{process.p_name}}</ion-label>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card>
-    </div>
+  </div>
 </ion-content>
-
 
