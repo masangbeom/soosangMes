@@ -15,24 +15,25 @@
     <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
   </ion-fab>
 
-  <div class="selectWarehouse">
-    <div class="animated zoomIn">
-    <ion-item>
-      <ion-label>
-        재고 창고 선택
-      </ion-label>
-      <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
-        <ion-option *ngFor="let warehouse of warehouses">
-          {{warehouse.title}}
-        </ion-option>
-      </ion-select>
-    </ion-item>
-    </div>
-  </div>
+
+
 
   <ion-grid>
     <ion-row>
       <ion-col>
+        <div class="animated zoomIn">
+          <ion-item style="margin-left: 10px; width: 97.5%;">
+            <ion-label>
+              재고 창고 선택
+            </ion-label>
+            <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
+              <ion-option *ngFor="let warehouse of warehouses">
+                {{warehouse.title}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
         <div class="leak_alert" *ngIf="leakProducts && selectOn">
           <ion-list>
             <ion-item style="width: 97.5%; height: 80px; margin-left: 10px; margin-top: 10px" class="animated fadeInUp" icon-left *ngFor="let leakProduct of leakProducts">
@@ -40,18 +41,18 @@
             </ion-item>
           </ion-list>
         </div>
-          <ion-card *ngIf="selectOn" style="margin-top: 30px;">
-            <div style="display: block; padding-left: 10px;" *ngFor="let warehouse of warehouses">
-              <div *ngIf="selectOn == warehouse.title">
-                <ion-card-header>{{warehouse.title}}</ion-card-header>
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-                  [chartType]="barChartType" [colors]="barChartColors" (chartClick)="chartClicked($event)"></canvas>
-              </div>
+        <ion-card *ngIf="selectOn" style="margin-top: 30px;">
+          <div style="display: block; padding-left: 10px;" *ngFor="let warehouse of warehouses">
+            <div *ngIf="selectOn == warehouse.title">
+              <ion-card-header>{{warehouse.title}}</ion-card-header>
+              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                [chartType]="barChartType" [colors]="barChartColors" (chartClick)="chartClicked($event)"></canvas>
             </div>
-          </ion-card>
+          </div>
+        </ion-card>
       </ion-col>
       <ion-col>
-        <div class="product_info" *ngIf="product && selectProduct==1">
+        <div *ngIf="product && selectProduct==1">
           <ion-row>
             <ion-card class="animated fadeInUp">
               <ion-card-header><strong>[{{product.name}}]</strong>의 재고 정보 <strong>[사용 : {{product.p_factory}} - {{product.p_line}}]</strong></ion-card-header>
@@ -75,12 +76,12 @@
               </div>
               <div [ngSwitch]="select_view">
                 <div *ngSwitchCase="'daily'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
-                  <canvas baseChart height="110px" [datasets]="lineChartData2" [labels]="lineChartLabels" [options]="lineChartOptions"
-                    [legend]="lineChartLegend" [chartType]="chartType2"></canvas>
+                  <canvas baseChart height="110px" [datasets]="lineChartData2" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend"
+                    [chartType]="chartType2"></canvas>
                 </div>
                 <div *ngSwitchCase="'monthly'" style="display: block; padding-left: 10px; padding-bottom: 10px; padding-right: 10px">
-                  <canvas baseChart height="110px" [datasets]="lineChartData2" [labels]="lineChartLabels" [options]="lineChartOptions"
-                    [legend]="lineChartLegend" [chartType]="chartType1"></canvas>
+                  <canvas baseChart height="110px" [datasets]="lineChartData2" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend"
+                    [chartType]="chartType1"></canvas>
                 </div>
               </div>
             </ion-card>

@@ -14,7 +14,6 @@ page-schedule-manager {
     }
   }
   .lineSelect {
-      width: 15%;
       position: absolute;
     ion-card {
       width: 100%;
@@ -33,21 +32,11 @@ page-schedule-manager {
   }
     
   .lineProcess{
-      width: 97%;
-      position: absolute;
       ion-card {
-      width: 100%;
       text-align: center;
-      margin-top: 20px;
-      ion-card-title{
-          font-size: 20px;
-          font-weight: bold;
-      }
-      ion-card-content{
-          
-      }
+      margin-top: 30px;
       .lineProcess_chart{
-          margin-top: 80px;
+          margin-top: 30px;
           margin-bottom: 80px; 
       }
       ion-col{

@@ -35,7 +35,6 @@ export class ScheduleManagerPage {
   private selectLine: string = "";
   private line: any;
   private loadProgress: number = 80;
-  private check: number = 0;
 
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
@@ -70,7 +69,6 @@ export class ScheduleManagerPage {
   }
 
   onChange(selectOn){
-    this.check = 0;
     this.selectLine = '';
     let temp: string = selectOn.trim();
       //console.log(temp);
@@ -88,7 +86,6 @@ export class ScheduleManagerPage {
   }
   onLineChange(selectLine){
     this.selectLine = selectLine;
-    this.check = 1;
     console.log(this.selectLine);
     let temp: string = selectLine.trim();
     for(let i=0; i<this.factory.lines.length; i++){
@@ -105,7 +102,7 @@ export class ScheduleManagerPage {
 
 
   lineSelectStop(){
-    this.selectLine = '';
+    this.line = null;
   }
 
   public chartClicked(e:any):void {

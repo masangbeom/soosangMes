@@ -43,15 +43,13 @@
     </ion-row>
   </ion-grid>
   </div>
-  <!-- <div class="view" *ngIf="selectOn.length > 0"> -->
-
-    <div padding *ngIf="!selectLine || check == 0">
+    <div *ngIf="factory && !line">
       <ion-card class="animated fadeInUp">
-        <ion-card-title padding style="background-color: #345cc0; color: #ffffff;font-weight: bold;font-size: 30px;">{{factory.title}}의 생산 스케쥴 및 현황</ion-card-title>
+        <ion-card-title padding style="background-color: #00BDAD; color: #ffffff;font-weight: bold;font-size: 30px;">{{factory.title}}의 생산 스케쥴 및 현황</ion-card-title>
         <daypilot-gantt padding [config]="config"></daypilot-gantt>
       </ion-card>
 
-      <ion-card>
+      <ion-card class="animated fadeInUp">
       <ion-list>
       <ion-item style="height: 80px" *ngFor="let completeTask of completeTasks">
         {{completeTask.text}} 의 스케쥴이 완료되었습니다.
@@ -61,17 +59,16 @@
       </ion-card>
     </div>
 
-    <div class="lineProcess" *ngIf="selectLine && check == 1">
+    <div class="lineProcess" *ngIf="line">
       <ion-card class="animated fadeInUp">
-        <ion-card-title>{{line.lineId}}번 라인 진행률
-          <ion-fab mini top right>
+        <ion-fab right style="margin-right: 30px">
             <button ion-fab (click)="lineSelectStop()" color="danger2" icon-only><ion-icon name="close"></ion-icon></button>
           </ion-fab>
-        </ion-card-title>
         <ion-card-content>
           <ion-grid>
             <ion-row>
               <ion-col>
+                <ion-label style="margin-top: 20px;">[{{line.name}}]의 진행률</ion-label>
                 <div class="lineProcess_chart">
                   <div style="display: block">
                     <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
@@ -79,9 +76,9 @@
                   </div>
                 </div>
               </ion-col>
-              <ion-col>
+              <ion-col style="margin-left: 30px;">
                 <div style="margin-top: 80px;">
-                <ion-label>[실제 생산량 / 목표 생산량]</ion-label>
+                <ion-label>[ 실제 생산량 / 목표 생산량 ]</ion-label>
                 <p>일간 생산률</p>
                 <progress-bar [progress]="loadProgress"></progress-bar>
                 <p>주간 생산률</p>
@@ -95,6 +92,5 @@
         </ion-card-content>
       </ion-card>
     </div>
-  <!-- </div> -->
 </ion-content>
 
