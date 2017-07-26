@@ -9,17 +9,12 @@ page-factory-monitoring {
       font-weight: bold;
     }
   }
-  // .content-process {
-  //   position: absolute;
-  //   width: 100%;
-  //   ion-card{
-  //     background-image: url("../assets/images/run.gif");
-  //   }
-  // }
+
   .round-button {
     display: block;
-    margin-right: 25px;
+    margin-right: 40px;
     margin-bottom: 20px;
+    margin-top: 20px;
     width: 130px;
     height: 130px;
     line-height: 50px;
@@ -28,7 +23,7 @@ page-factory-monitoring {
     color: black;
     text-align: center;
     text-decoration: none;
-    //background: lightblue;
+    padding-top: 35px;
     box-shadow: 0 0 5px black;
     font-size: 18px;
     font-weight: bold;
@@ -40,10 +35,9 @@ page-factory-monitoring {
   }
   .round-button-arrow {
     display: block;
-    margin-right: 25px;
+    margin-right: 40px;
     margin-bottom: 10px;
-    margin-top: 10px;
-    margin-top: 38px;
+    margin-top: 58px;
     width: 50px;
     height: 50px;
     line-height: 50px;
@@ -70,7 +64,7 @@ page-factory-monitoring {
       display:block;
       margin-right: 25px;
       margin-bottom: 20px;
-      margin-top: 10px;
+      margin-top: 25px;
       width:130px;
       height:130px;
       line-height:50px;
@@ -118,34 +112,64 @@ page-factory-monitoring {
     ion-card{
       width: 98.7%;
     }
+    br{
+      font-size: 0px;
+    }
   }
   .table_attribute {
+    margin-top: 30px;
     ion-col {
-      border-style: solid;
-       text-align: center;
+        border-style: solid;
+        text-align: center;
+        padding-top: 20px; 
       p {
         border-style: solid;
         border-top-width: 0;
         border-left-width: 0;
         border-right-width: 0;
-        //border-bottom-width: 1px;
-        margin-top: 5px;
+        margin-top: 20px;
+        font-size: 20px;
+
       }
-      strong {
-        font-size: 15px;
+      h2 {
+        font-size: 23px;
         border-style: solid;
         border-top-width: 0;
         border-left-width: 0;
         border-right-width: 0;
-        //border-bottom-width: 1px;
-        //letter-spacing: 5px;
-        //font-variant: small-caps;
-        font-style: italic;
-        margin-bottom: 15px;
-        color: #535f99;
+        margin-bottom: 20px;
+        color: #488aff;
+        font-weight: bold;
       }
     }
   }
   
+  .round-progress {
+    display: block;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    margin-top: 58px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 2px solid black;
+    border-radius: 50%;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    background: #ffffff;
+    box-shadow: 0 0 4px black;
+    cursor:pointer;
+  transition:1000ms ease all;
+  outline:none;
+  }
+  .round-progress:hover {
+    background: gray;
+  }
+  .round-progress img {
+    display: block;
+    padding: 12%;
+    height: auto;
+  }
 }
 

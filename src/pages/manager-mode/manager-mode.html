@@ -17,6 +17,7 @@
         <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
   </ion-fab>
 <div class="empty-list" *ngIf="isCorrect == false">
+    <div class="animated zoomIn">
     <h1>
       <ion-icon name="ios-alert-outline"></ion-icon>
     </h1>
@@ -27,13 +28,16 @@
     <ion-fab center>
       <button ion-fab sytle='margin-top: 20px' color="danger2" (click)="login()"><ion-icon name="ios-unlock"></ion-icon></button>
       </ion-fab> 
+    </div>
   </div>
 
   <div class="empty-list" *ngIf="isCorrect == true">
+    <div class="animated zoomIn">
     <h1>
       <ion-icon name="ios-construct-outline"></ion-icon>
       
     </h1>
+    </div>
   </div>
 
 </ion-content>

@@ -33,7 +33,7 @@ export class MyApp {
       { title: '불량관리', component: PoorManagerPage, iconName: 'ios-warning'},
       { title: '재고관리', component: StockManagerPage, iconName: 'logo-dropbox'},
       { title: '인적자원관리', component: WorkerManagerPage, iconName: 'ios-people'},
-      { title: '자재위치관리', component: MaterialsLocationManagerPage, iconName: 'md-locate'},
+      //{ title: '자재위치관리', component: MaterialsLocationManagerPage, iconName: 'md-locate'},
       { title: '공장환경관리', component: FactoryEnvironmentManagerPage, iconName: 'md-globe'},
       { title: '관리자모드', component: ManagerModePage, iconName: 'md-settings'}
     ];

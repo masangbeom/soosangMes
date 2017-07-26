@@ -14,7 +14,7 @@
   <ion-fab top right edge>
     <button ion-fab color="dark" icon-only><ion-icon name="help"></ion-icon></button>
   </ion-fab>
-
+  <div class="animated zoomIn">
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -41,6 +41,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  </div>
 
   <ion-card class="animated fadeInUp" *ngIf="factory && startDate && endDate">
     <ion-segment style="margin-left: 10px; width: 98.5%; background-color: #ffffff;" [(ngModel)]="select_view">

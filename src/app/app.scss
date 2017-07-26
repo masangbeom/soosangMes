@@ -12,12 +12,42 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+div.toolbar-title.toolbar-title-md{
+  font-size: 35px;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow:
+    -1px -1px 0 #000,
+    3px -1px 0 #000,
+    -1px 1px 0 #000,
+    3px 1px 0 #000;  
+}
+.toolbar-background{
+  background-image: url('../assets/images/factoryBanner.jpg');
+  // background-repeat: no-repeat;
+  background-size:contain;
+}
+
+ion-navbar{
+  height: 120px;
+  button{
+    ion-icon{
+  color: #ffffff;
+  //font-weight: bold;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}}
+}
 ion-icon {
   margin-top: 5px;
 }
 
 ion-card{
   border: solid;
+  //border-color: #345cc0;
 }
 
 ion-label {
@@ -26,7 +56,7 @@ ion-label {
     }
 
  ion-item{
-  background:#222;
+  background:#00BDAD;
   color:#fff;
   border:none;
   position:relative;
@@ -39,7 +69,7 @@ ion-label {
 }
 ion-item:hover{
   background:#fff;
-  color:#222;
+  color:#00BDAD;
 }
 ion-item:before,ion-item:after{
   content:'';
@@ -48,7 +78,7 @@ ion-item:before,ion-item:after{
   right:0;
   height:2px;
   width:0;
-  background: #222;
+  background: #00BDAD;
   transition:800ms ease all;
 }
 ion-item:after{
@@ -64,7 +94,7 @@ ion-item:hover:before,ion-item:hover:after{
 
 .menu_toolbar {
   button{
-  background:#345cc0;
+  background: #00BDAD;
   color:#fff;
   border:none;
   position:relative;
@@ -77,7 +107,7 @@ ion-item:hover:before,ion-item:hover:after{
 }
 button:hover{
   background:#fff;
-  color:#345cc0;
+  color:#00BDAD;
 }
 button:before,button:after{
   content:'';
@@ -86,7 +116,7 @@ button:before,button:after{
   right:0;
   height:2px;
   width:0;
-  background: #345cc0;
+  background: #00BDAD;
   transition:400ms ease all;
 }
 button:after{
@@ -108,8 +138,9 @@ button:hover:before,button:hover:after{
   }
 }
 ion-content{
-    background-image: url('../assets/images/lightblue.jpg');
+    background-image: url('../assets/images/00bdad.png');
     background-repeat: no-repeat;
     background-size:cover;
 }
+
 

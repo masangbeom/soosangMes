@@ -20,14 +20,16 @@
     <ion-row>
       <ion-col>
         <div class="selectFactory">
-          <ion-item>
-            <ion-label>공장 선택</ion-label>
-            <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
-              <ion-option *ngFor="let factory of factories">
-                {{factory.title}}
-              </ion-option>
-            </ion-select>
-          </ion-item>
+          <div class="animated zoomIn">
+            <ion-item>
+              <ion-label>공장 선택</ion-label>
+              <ion-select okText="확인" cancelText="취소" [(ngModel)]="selectOn" (ionChange)="onChange(selectOn)">
+                <ion-option *ngFor="let factory of factories">
+                  {{factory.title}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+          </div>
         </div>
       </ion-col>
       <ion-col>
@@ -51,7 +53,7 @@
       <ion-grid>
         <ion-row>
           <div *ngFor="let process of line.processes">
-            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code)" class="round-button">{{process.p_name}}</button>
+            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code)" class="round-button">{{process.p_name}}<br/><ion-badge color="danger2">{{process.poor.poor1_num}}</ion-badge></button>
             <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && !isLineEnd(process.p_code)" class="round-button-arrow">
         <img src="../assets/icon/right-arrow1.png"/>
       </button>
@@ -72,8 +74,8 @@
       <ion-grid>
         <ion-row>
           <div *ngFor="let process of line.processes">
-            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code) && !process.p_error" class="round-button">{{process.p_name}}</button>
-            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code) && process.p_error" class="round-button" style="background-image: url('../assets/images/stop.png'); background-size:contain;">{{process.p_name}}</button>
+            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code) && !process.p_error" class="round-button">{{process.p_name}}<br/><ion-badge color="danger2">{{process.poor.poor1_num}}</ion-badge></button>
+            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code) && process.p_error" class="round-button" style="background-image: url('../assets/images/stop.png'); background-size:contain; padding-top: 5px;">{{process.p_name}}</button>
             <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && !isLineEnd(process.p_code)  && process.p_error"
               class="round-button-arrow" style="background-image: url('../assets/images/stop.png'); background-size:contain;">
         <img src="../assets/icon/right-arrow1.png"/>
@@ -87,7 +89,7 @@
       </button>
           </div>
 
-          <button (click)="processClick(process)" class="round-button-end">라인 종료</button>
+          <button class="round-button-end">라인 종료</button>
 
         </ion-row>
       </ion-grid>
@@ -221,38 +223,132 @@
 
     </ion-card>
 
-    <ion-card class="animated fadeInUp" *ngIf="process">
+    <ion-card class="animated fadeInUp" *ngIf="process && !machine">
       <ion-fab right style="margin-right: 30px">
         <button ion-fab (click)="processSelectStop()" color="danger2" icon-only><ion-icon name="close"></ion-icon></button>
       </ion-fab>
-      <button ion-button (click)="plustable()">plus</button>
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-label>{{process.p_name}}</ion-label>
-            <div class="table_attribute">
-              <ion-row>
-                <ion-col>
-                  <strong>Product</strong>
-                  <p *ngFor="let table of tables" [innerHtml]="table.product"></p>
-                </ion-col>
-                <ion-col>
-                  <strong>Payment Date</strong>
-                  <p *ngFor="let table of tables" [innerHtml]="table.date"></p>
-                </ion-col>
-                <ion-col>
-                  <strong>Status</strong>
-                  <p *ngFor="let table of tables" [innerHtml]="table.status"></p>
-                </ion-col>
-              </ion-row>
-            </div>
+            <ion-row>
+              <ion-col>
+                <ion-label>[{{process.p_name}}]공정 진행 상태</ion-label>
+                <img *ngIf="!process.p_error" src="../assets/images/progressing.gif"/>
+                <img *ngIf="process.p_error" src="../assets/images/stop.png"/>
+              </ion-col>
+              <ion-col>
+                <ion-label>[{{process.p_name}}]공정 상태별 제품 수</ion-label>
+                <div class="table_attribute">
+                  <ion-row>
+                    <ion-col style="border-right-width: 0;">
+                      <h2>상태</h2>
+                      <p>공정 중</p>
+                      <p>공정 완료</p>
+                      <p>불량 갯수</p>
+                    </ion-col>
+                    <ion-col>
+                      <h2>제품 수</h2>
+                      <p>{{process.p_processing}}</p>
+                      <p>{{process.p_complete}}</p>
+                      <p>{{process.poor.poor1_num + process.poor.poor2_num + process.poor.poor3_num}}</p>
+                    </ion-col>
+                  </ion-row>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+
+          <ion-col>
+            <ion-row>
+              <ion-col>
+                <ion-label>[{{process.p_name}}]공정 불량 유형</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </ion-col>
+              <ion-col>
+                <ion-label>[{{process.p_name}}]공정 설비</ion-label>
+                  <ion-list>
+                    <ion-item style="height: 120px" (click)="showMachine(machine)" *ngFor="let machine of process.machines">
+                      {{machine.m_name}}
+                    </ion-item>
+                  </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-card class="animated fadeInUp" *ngIf="machine">
+      <ion-fab right style="margin-right: 30px">
+        <button ion-fab (click)="machineSelectStop()" color="danger2" icon-only><ion-icon name="close"></ion-icon></button>
+      </ion-fab>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>[{{machine.m_name}}]의 정보</ion-label>
+              <div class="table_attribute">
+                  <ion-row>
+                    <ion-col style="border-right-width: 0;">
+                      <h2>-</h2>
+                      <p><strong>공정 시간</strong></p>
+                      <p><strong>가동 시간</strong></p>
+                      <p><strong>가동률</strong></p>
+                    </ion-col>
+                    <ion-col>
+                      <h2>-</h2>
+                      <p><strong>{{machine.m_cycle}}sec</strong></p>
+                      <p><strong>{{machine.m_runtime}}h/day</strong></p>
+                      <p><strong>{{machine.m_runpercentage}}%</strong></p>
+                    </ion-col>
+                  </ion-row>
+                </div>
           </ion-col>
           <ion-col>
-            <ion-label>{{process.p_name}}</ion-label>
+            <ion-label>[{{machine.m_name}}]의 고장/수리 내역</ion-label>
+              <div class="table_attribute">
+                  <ion-row>
+                    <ion-col style="border-right-width: 0;">
+                      <h2>날짜</h2>
+                      <p>{{machine.m_fix.date}}</p>
+                      <p>{{machine.m_fix.date}}</p>
+                      <p>{{machine.m_fix.date}}</p>
+                    </ion-col>
+                    <ion-col>
+                      <h2>내역</h2>
+                      <p>{{machine.m_fix.fix_what}}</p>
+                      <p>{{machine.m_fix.fix_what}}</p>
+                      <p>{{machine.m_fix.fix_what}}</p>
+                    </ion-col>
+                  </ion-row>
+                </div>
           </ion-col>
-          <ion-col></ion-col>
+          <ion-col>
+            <ion-label>[{{machine.m_name}}]의 점검 일자</ion-label>
+              <div class="table_attribute">
+                  <ion-row>
+                    <ion-col style="border-right-width: 0;">
+                      <h2>날짜</h2>
+                      <p>{{machine.m_fix.date}}</p>
+                      <p>{{machine.m_fix.date}}</p>
+                      <p>{{machine.m_fix.date}}</p>
+                    </ion-col>
+                    <ion-col>
+                      <h2>내역</h2>
+                      <p>{{machine.m_fix.fix_what}}</p>
+                      <p>{{machine.m_fix.fix_what}}</p>
+                      <p>{{machine.m_fix.fix_what}}</p>
+                    </ion-col>
+                  </ion-row>
+                </div>
+          </ion-col>
+          <ion-col>
+            <ion-label>[{{machine.m_name}}]의 고장 발생 예측</ion-label>
+          </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card>
   </div>
 </ion-content>
+

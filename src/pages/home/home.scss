@@ -1,20 +1,20 @@
-
 page-home {
-
   .empty-list {
     position: absolute;
     top: 20%;
     width: 100%;
     text-align: center;
-    ion-fab{
+    ion-fab {
       margin-top: 20px;
     }
     h1,
     p {
       color: $dark;
+      font-weight: bold;
     }
     h1 {
       font-size: 3em;
+      font-weight: bold;
       img {
         height: 200px;
         width: 200px;
@@ -36,13 +36,12 @@ page-home {
     }
   }
   ion-input.input.input-md {
-    border-style: inset;
+    //border-style: solid;
     width: 50%;
     margin-left: 25%;
     background: #f4f4f4;
   }
-
-  .empty-lists{
+  .empty-lists {
     position: absolute;
     top: 20%;
     width: 100%;
@@ -67,57 +66,55 @@ page-home {
       margin-left: auto;
       margin-right: auto;
     }
-    button{
-  background:#345cc0;
-  color:#fff;
-  border:none;
-  position:relative;
-  height:130px;
-  font-size:1.6em;
-  padding:0 2em;
-  cursor:pointer;
-  transition:800ms ease all;
-  outline:none;
-}
-button:hover{
-  background:#fff;
-  color:#345cc0;
-}
-button:before,button:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #345cc0;
-  transition:400ms ease all;
-}
-button:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-button:hover:before,button:hover:after{
-  width:100%;
-  transition:800ms ease all;
-}
-
-
-
+    button {
+      background: #00BDAD;
+      color: #fff;
+      border: solid;
+      position: relative;
+      height: 130px;
+      font-size: 1.6em;
+      padding: 0 2em;
+      cursor: pointer;
+      transition: 800ms ease all;
+      outline: none;
+    }
+    button:hover {
+      background: #fff;
+      color: #00BDAD;
+    }
+    button:before,
+    button:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 2px;
+      width: 0;
+      background: #00BDAD;
+      transition: 400ms ease all;
+    }
+    button:after {
+      right: inherit;
+      top: inherit;
+      left: 0;
+      bottom: 0;
+    }
+    button:hover:before,
+    button:hover:after {
+      width: 100%;
+      transition: 800ms ease all;
+    }
   }
   ion-input.input.input-md {
-    border-style: inset;
+    border-style: solid;
     width: 50%;
     margin-left: 25%;
   }
-
-  ion-content{
+  ion-content {
     background-image: url('../assets/images/factory.gif');
     background-repeat: no-repeat;
-    background-size:cover;
-}
-
+    background-size: cover;
+    background-position: center;
+  }
 }
 

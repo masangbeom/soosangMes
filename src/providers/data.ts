@@ -467,7 +467,48 @@ export class DataProvider {
     products.push(product4);
     products.push(product5);
     products.push(product6);
-
     return products;
+  }
+
+  getProcessPoor(process){
+    let poor = {
+      poor1_num: (Math.round(Math.random() * 10)),
+      poor2_num: (Math.round(Math.random() * 10)),
+      poor3_num: (Math.round(Math.random() * 10)),             
+      cause: (Math.round(Math.random() * 100)),
+      m_num: 3,
+      product_num: (Math.round(Math.random() * 100)),
+    }
+    return poor;
+  }
+  getProcessMachine(process){
+    let machine_fix = {
+      date: '17/0'+(Math.round(Math.random() * 10)).toString()+'/0'+(Math.round(Math.random() * 10)).toString(),
+      fix_what: 'code #'+(Math.round(Math.random() * 100)).toString()
+    }
+    let machines = [
+      {
+        m_name: 'Machine 1',
+        m_cycle: (Math.round(Math.random() * 10)),
+        m_runtime: (Math.round(Math.random() * 10)),
+        m_runpercentage: (Math.round(Math.random() * 10)),
+        m_fix: machine_fix
+      },
+      {
+        m_name: 'Machine 2',
+        m_cycle: (Math.round(Math.random() * 10)),
+        m_runtime: (Math.round(Math.random() * 10)),
+        m_runpercentage: (Math.round(Math.random() * 10)),
+        m_fix: machine_fix
+      },
+      {
+        m_name: 'Machine 3',
+        m_cycle: (Math.round(Math.random() * 10)),
+        m_runtime: (Math.round(Math.random() * 10)),
+        m_runpercentage: (Math.round(Math.random() * 10)),
+        m_fix: machine_fix
+      }
+    ]
+    return machines;
   }
 }

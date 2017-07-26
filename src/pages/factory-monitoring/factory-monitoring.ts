@@ -20,6 +20,8 @@ export class FactoryMonitoringPage {
   private lineRunning: boolean = true;
   private tables: any = [];
   private count: number = 0;
+  private machine:Array<any>;
+  
 
   // lineChart
   public lineChartData:Array<any> = [
@@ -74,6 +76,11 @@ export class FactoryMonitoringPage {
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
   ];
 
+  // Pie
+  public pieChartLabels:string[];
+  public pieChartData:number[];
+  public pieChartType:string = 'pie';
+
   constructor(public dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams, public app: App) {}
 
   ionViewDidLoad() {
@@ -115,10 +122,12 @@ export class FactoryMonitoringPage {
         }
         this.line = line;
         let count = 0;
-        this.line.processes.forEach(element => {
-          if(element.p_error){
+        this.line.processes.forEach(process => {
+          if(process.p_error){
             count += 1;
           }
+          process.poor = this.dataProvider.getProcessPoor(process);
+          console.log(process);
         });
         console.log(count);
         if(count == 0){
@@ -143,9 +152,23 @@ export class FactoryMonitoringPage {
     if(process==null){
       this.process = "END LINE";
     }else{
-    this.process = process;
+    let _process = {
+        p_code: process.p_code,
+        p_name: process.p_name,
+        description: process.description,
+        pro_code: process.pro_code,
+        p_error: process.p_error,
+        l_code: process.l_code,
+        p_processing: Math.round(Math.random() * 100),
+        p_complete: Math.round(Math.random() * 100),
+        poor: process.poor,
+        machines: this.dataProvider.getProcessMachine(process)
+      }
+      this.process = _process;
+      console.log(this.process);
     }
-    console.log(this.process);
+    this.pieChartLabels = ['외관불량', '치수불량','설비고장'];
+    this.pieChartData = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
   }
 
   processSelectStop(){
@@ -190,14 +213,12 @@ export class FactoryMonitoringPage {
      */
   }
 
-   plustable(){
-       this.tables.push({
-        product: "product"+this.count,
-        date: Date.now(),
-        status: "good"+this.count
-    })
-    this.count +=1;
+  showMachine(machine){
+    this.machine = machine;
+
   }
-    
+  machineSelectStop(){
+    this.machine = null;
+  }
 }
 
