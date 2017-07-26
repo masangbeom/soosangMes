@@ -222,7 +222,7 @@ export class DataProvider {
       p_name: 'line1p6p7',
       description: '설명',
       pro_code: '제품 번호',
-      p_error: true,
+      p_error: false,
       l_code: 1
     }, {
       p_code: 13,

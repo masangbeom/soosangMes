@@ -47,28 +47,7 @@
     </ion-row>
   </ion-grid>
   <div class="content-process" *ngIf="selectLine">
-    <ion-card *ngIf="lineRunning" style="background-image: url('../assets/images/run.gif'); background-size: contain; background-position-x: -130px;"
-      padding class="animated fadeInUp">
-
-      <ion-grid>
-        <ion-row>
-          <div *ngFor="let process of line.processes">
-            <button (click)="processClick(process)" *ngIf="!isEven(process.p_code)" class="round-button">{{process.p_name}}<br/><ion-badge color="danger2">{{process.poor.poor1_num}}</ion-badge></button>
-            <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && !isLineEnd(process.p_code)" class="round-button-arrow">
-        <img src="../assets/icon/right-arrow1.png"/>
-      </button>
-            <button (click)="processClick(process)" *ngIf="isEven(process.p_code) && isLineEnd(process.p_code)" class="round-button-arrow">
-        <img src="../assets/icon/right-arrow1.png"/>
-      </button>
-          </div>
-
-          <button (click)="processClick(process)" class="round-button-end">라인 종료</button>
-
-        </ion-row>
-      </ion-grid>
-    </ion-card>
-
-    <ion-card *ngIf="!lineRunning" style="background: #344557; background-repeat: no-repeat; background-size:contain; background-position: right;"
+    <ion-card style="background: #344557; background-repeat: no-repeat; background-size:contain;"
       padding class="animated fadeInUp">
 
       <ion-grid>
@@ -90,7 +69,8 @@
           </div>
 
           <button class="round-button-end">라인 종료</button>
-
+          <img *ngIf="lineRunning" style="width:200px; height: 150px; margin-top: 15px"src="../assets/images/run.gif"/>
+          <img *ngIf="!lineRunning" style="width:100px; height: 100px; margin-top: 40px; margin-left: 40px"src="../assets/images/stop.png"/>
         </ion-row>
       </ion-grid>
     </ion-card>
@@ -233,8 +213,8 @@
             <ion-row>
               <ion-col>
                 <ion-label>[{{process.p_name}}]공정 진행 상태</ion-label>
-                <img *ngIf="!process.p_error" src="../assets/images/progressing.gif"/>
-                <img *ngIf="process.p_error" src="../assets/images/stop.png"/>
+                <img *ngIf="!process.p_error" style="width: 350px; margin-top: 30px;" src="../assets/images/progressing.gif"/>
+                <img *ngIf="process.p_error" style="width: 350px; margin-top: 30px;" src="../assets/images/stop.png"/>
               </ion-col>
               <ion-col>
                 <ion-label>[{{process.p_name}}]공정 상태별 제품 수</ion-label>
