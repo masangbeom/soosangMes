@@ -169,6 +169,7 @@ export class FactoryMonitoringPage {
     }
     this.pieChartLabels = ['외관불량', '치수불량','설비고장'];
     this.pieChartData = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
+    this.machine = null;
   }
 
   processSelectStop(){

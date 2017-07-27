@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar color="danger2">
+  <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -21,22 +21,34 @@
     <h1>
       <ion-icon name="ios-alert-outline"></ion-icon>
     </h1>
-    <p>관리자 페이지입니다.</p>
+    <p>관리자 페이지입니다.</p> 
     <p>관리자 PASSWORD를 통해 잠금해제 해주세요</p>
     <ion-label stacked style="color:black">PASSWORD</ion-label>
     <ion-input placeholder="관리자 PASSWORD를 입력하세요." type="password"></ion-input>
     <ion-fab center>
-      <button ion-fab sytle='margin-top: 20px' color="danger2" (click)="login()"><ion-icon name="ios-unlock"></ion-icon></button>
+      <button ion-fab sytle='margin-top: 20px' style="background: #dd4b39;" (click)="login()"><ion-icon name="ios-unlock"></ion-icon></button>
       </ion-fab> 
     </div>
   </div>
 
-  <div class="empty-list" *ngIf="isCorrect == true">
+  <div class="empty-lists" *ngIf="isCorrect == true">
     <div class="animated zoomIn">
     <h1>
       <ion-icon name="ios-construct-outline"></ion-icon>
-      
     </h1>
+    <ion-grid padding>
+      <ion-row>
+        <ion-col>
+          <button  icon-left><ion-icon name="md-analytics"></ion-icon>라인&공정 관리</button> 
+        </ion-col>
+        <ion-col>
+          <button  icon-left><ion-icon name="md-analytics"></ion-icon>일정 관리</button> 
+        </ion-col>
+        <ion-col>
+          <button  icon-left><ion-icon name="md-analytics"></ion-icon>재고 관리</button> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     </div>
   </div>
 

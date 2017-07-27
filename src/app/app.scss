@@ -56,7 +56,7 @@ ion-label {
     }
 
  ion-item{
-  background:#00BDAD;
+  background:#000;
   color:#fff;
   border:none;
   position:relative;
@@ -69,7 +69,7 @@ ion-label {
 }
 ion-item:hover{
   background:#fff;
-  color:#00BDAD;
+  color:#000;
 }
 ion-item:before,ion-item:after{
   content:'';
@@ -78,7 +78,7 @@ ion-item:before,ion-item:after{
   right:0;
   height:2px;
   width:0;
-  background: #00BDAD;
+  background: #000;
   transition:800ms ease all;
 }
 ion-item:after{
@@ -97,9 +97,19 @@ ion-item:hover:before,ion-item:hover:after{
   background: #00BDAD;
   color:#fff;
   border:none;
+  text-align: left;
+  ion-icon{
+    margin-left: 10px;
+  }
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
   position:relative;
   height:auto;
-  font-size:1.6em;
+  font-size:0.87em;
+  margin-top: 10px;
   padding:0 2em;
   cursor:pointer;
   transition:800ms ease all;
@@ -107,7 +117,8 @@ ion-item:hover:before,ion-item:hover:after{
 }
 button:hover{
   background:#fff;
-  color:#00BDAD;
+  color:#000;
+  text-shadow: none;
 }
 button:before,button:after{
   content:'';
@@ -116,7 +127,7 @@ button:before,button:after{
   right:0;
   height:2px;
   width:0;
-  background: #00BDAD;
+  background: #000;
   transition:400ms ease all;
 }
 button:after{

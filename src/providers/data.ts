@@ -470,6 +470,86 @@ export class DataProvider {
     return products;
   }
 
+  sampleProductPoor(product){
+    let productPoor = [{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '치수불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 12:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '설비고장',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 03:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '외관불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 06:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '치수불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 11:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '치수불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 12:00:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '설비고장',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 12:10:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '외관불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 12:20:23'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '치수불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 06:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '외관불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 06:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '설비고장',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 06:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '외관불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 06:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '치수불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 06:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '외관불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 06:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '설비고장',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 06:30:33'
+    },{
+      o_line: (Math.floor(Math.random() * 5)+1),
+      o_process: (Math.floor(Math.random() * 16)+1),
+      poor_what: '외관불량',
+      o_time: '17.0'+(Math.round(Math.random() * 10)).toString()+'.0'+(Math.round(Math.random() * 10)).toString()+' 06:30:33'
+    },];
+    return productPoor;
+  }
+
   getProcessPoor(process){
     let poor = {
       poor1_num: (Math.round(Math.random() * 10)),

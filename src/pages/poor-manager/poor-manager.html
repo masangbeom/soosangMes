@@ -84,25 +84,35 @@
               <ion-label>라인 불량 상세</ion-label>
             <div class="table_attribute">
               <ion-row>
-                <ion-col>
-                  <strong>공정</strong>
-                  <p *ngFor="let process of line.processes" [innerHtml]="process.p_name"></p>
+                <ion-col style="border-right-width: 0;">
+                  <h2>공정</h2>
+                  <div *ngFor="let process of line.processes">
+                  <p *ngIf="!isEven(process.p_code)">{{process.p_name}}</p>
+                  </div>
+                </ion-col>
+                <ion-col style="border-right-width: 0;">
+                  <h2>외관불량</h2>
+                  <div *ngFor="let process of line.processes">
+                  <p *ngIf="!isEven(process.p_code)">{{process.poor.poor1_num}}</p>
+                  </div>
+                </ion-col>
+                <ion-col style="border-right-width: 0;">
+                  <h2>치수불량</h2>
+                  <div *ngFor="let process of line.processes">
+                  <p *ngIf="!isEven(process.p_code)">{{process.poor.poor2_num}}</p>
+                  </div>
+                </ion-col>
+                <ion-col style="border-right-width: 0;">
+                  <h2>설비고장</h2>
+                  <div *ngFor="let process of line.processes">
+                  <p *ngIf="!isEven(process.p_code)">{{process.poor.poor3_num}}</p>
+                  </div>
                 </ion-col>
                 <ion-col>
-                  <strong>외관불량</strong>
-                  <p *ngFor="let process of line.processes" [innerHtml]="process.p_code"></p>
-                </ion-col>
-                <ion-col>
-                  <strong>치수불량</strong>
-                  <p *ngFor="let process of line.processes" [innerHtml]="process.p_code"></p>
-                </ion-col>
-                <ion-col>
-                  <strong>설비고장</strong>
-                  <p *ngFor="let process of line.processes" [innerHtml]="process.p_code"></p>
-                </ion-col>
-                <ion-col>
-                  <strong>공장 불량률</strong>
-                  <p *ngFor="let process of line.processes" [innerHtml]="process.p_code"></p>
+                  <h2>공정 불량률</h2>
+                  <div *ngFor="let process of line.processes">
+                  <p *ngIf="!isEven(process.p_code)">{{process.poorPercent}}</p>
+                  </div>
                 </ion-col>
               </ion-row>
             </div>
@@ -125,6 +135,38 @@
             </ion-col>
             <ion-col></ion-col>
             <ion-col></ion-col>
+          </ion-row>
+          <ion-row *ngIf="product">
+            <ion-col>
+              <ion-label>[{{product.name}}]불량 내역</ion-label>
+            <div class="table_attribute">
+              <ion-row>
+                <ion-col style="border-right-width: 0;">
+                  <h2>발생라인</h2>
+                  <p *ngFor="let poor of product.productPoor">{{poor.o_line}}</p>
+                </ion-col>
+                <ion-col style="border-right-width: 0;">
+                  <h2>발생공정</h2>
+                   <p *ngFor="let poor of product.productPoor">{{poor.o_process}}</p>
+                </ion-col>
+                <ion-col style="border-right-width: 0;">
+                  <h2>불량내용</h2>
+                   <p *ngFor="let poor of product.productPoor">{{poor.poor_what}}</p>
+                </ion-col>
+                <ion-col>
+                  <h2>발생시간</h2>
+                   <p *ngFor="let poor of product.productPoor">{{poor.o_time}}</p>
+                </ion-col>
+              </ion-row>
+            </div>
+            </ion-col>
+            <ion-col>
+              <ion-label>[{{product.name}}]불량 유형</ion-label>
+                <div style="display: block">
+                  <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                </div>
+            </ion-col>
           </ion-row>
         </ion-grid>
       </div>

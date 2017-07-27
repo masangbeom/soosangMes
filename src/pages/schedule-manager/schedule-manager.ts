@@ -15,15 +15,15 @@ export class ScheduleManagerPage {
     cellWidthSpec: "Auto",
     tasks: [
       {start: "2014-01-05", end: "2017-01-07", id: 1, text: "물품1 생산", complete: 40},
-      {start: "2017-01-06", end: "2017-01-14", id: 2, text: "물품1 생산", complete: 100},
-      {start: "2017-01-07", end: "2017-01-23", id: 3, text: "물품1 생산", complete: 30},
-      {start: "2017-01-08", end: "2017-01-22", id: 4, text: "물품1 생산", complete: 60},
-      {start: "2017-01-09", end: "2017-01-21", id: 5, text: "물품1 생산", complete: 50},
-      {start: "2017-01-10", end: "2017-01-20", id: 6, text: "물품1 생산", complete: 100},
-      {start: "2014-01-05", end: "2017-01-07", id: 7, text: "물품1 생산", complete: 70},
-      {start: "2017-01-06", end: "2017-01-14", id: 8, text: "물품1 생산", complete: 80},
-      {start: "2017-01-07", end: "2017-01-23", id: 9, text: "물품1 생산", complete: 90},
-      {start: "2017-01-08", end: "2017-01-22", id: 10, text: "물품1 생산", complete: 100},
+      {start: "2017-01-06", end: "2017-01-14", id: 2, text: "물품2 생산", complete: 100},
+      {start: "2017-01-07", end: "2017-01-23", id: 3, text: "물품3 생산", complete: 30},
+      {start: "2017-01-08", end: "2017-01-22", id: 4, text: "물품4 생산", complete: 60},
+      {start: "2017-01-09", end: "2017-01-21", id: 5, text: "물품5 생산", complete: 50},
+      {start: "2017-01-10", end: "2017-01-20", id: 6, text: "물품6 생산", complete: 100},
+      {start: "2014-01-05", end: "2017-01-07", id: 7, text: "물품7 생산", complete: 70},
+      {start: "2017-01-06", end: "2017-01-14", id: 8, text: "물품8 생산", complete: 80},
+      {start: "2017-01-07", end: "2017-01-23", id: 9, text: "물품9 생산", complete: 90},
+      {start: "2017-01-08", end: "2017-01-22", id: 10, text: "물품10 생산", complete: 100},
     ]
     
   };

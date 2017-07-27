@@ -32,6 +32,11 @@ export class PoorManagerPage {
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
   ];
 
+  // Pie
+  public pieChartLabels:string[];
+  public pieChartData:number[];
+  public pieChartType:string = 'pie';
+
 
   constructor(public navCtrl: NavController, public toastCtrl: ToastController, public navParams: NavParams, public dataProvider: DataProvider) {}
 
@@ -90,9 +95,18 @@ export class PoorManagerPage {
           processes: this.factory.lines[i].processes
         }
         this.line = line;
+        this.line.processes.forEach(process => {
+          process.poor = this.dataProvider.getProcessPoor(process);
+          process.poorPercent = (Math.random()).toFixed(2);
+        });
+        
         console.log(this.line)
       }
     }
+  }
+
+  isEven(n) {
+    return n % 2 == 0;
   }
 
   onProductChange(selectProduct) {
@@ -107,9 +121,13 @@ export class PoorManagerPage {
           p_line: this.factory.products[i].p_line
         }
         this.product = product;
+        this.product.productPoor = this.dataProvider.sampleProductPoor(this.product);
         console.log(this.product)
       }
     }
+
+    this.pieChartLabels = ['외관불량', '치수불량','설비고장'];
+    this.pieChartData = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
   }
 
   public chartClicked(e:any):void {

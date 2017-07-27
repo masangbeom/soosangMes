@@ -4,12 +4,24 @@ page-manager-mode {
     top: 20%;
     width: 100%;
     text-align: center;
+    ion-fab {
+      margin-top: 20px;
+       color: #dd4b39;
+    }
     h1,
     p {
-      color: $dark;
+      font-size: 40px;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow:
+    -3px -3px 0 #000,
+    1px -3px 0 #000,
+    -3px 1px 0 #000,
+    1px 1px 0 #000;  
     }
     h1 {
-      font-size: 3em;
+      font-size: 5em;
+      font-weight: bold;
       img {
         height: 200px;
         width: 200px;
@@ -17,13 +29,13 @@ page-manager-mode {
       }
     }
     p {
-      font-size: 1.125em;
+      //font-size: 1.55em;
       width: 70vw;
       margin-left: auto;
       margin-right: auto;
     }
     button {
-      background: $google;
+      background: $primary;
     }
     button.activated,
     button:active {
@@ -31,13 +43,95 @@ page-manager-mode {
     }
   }
   ion-input.input.input-md {
-    border-style: solid;
+    //border-style: solid;
     width: 50%;
     margin-left: 25%;
     background: #f4f4f4;
   }
-  ion-fab{
-    margin-top: 20px;
-    color: #dd4b39;
+  .empty-lists {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    h1,
+    p {
+     font-size: 5em;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow:
+    -3px -3px 0 #000,
+    1px -3px 0 #000,
+    -3px 1px 0 #000,
+    1px 1px 0 #000;  
+    }
+    h1 {
+      font-size: 6em;
+      img {
+        height: 200px;
+        width: 200px;
+        margin-top: 100px;
+      }
+    }
+    p {
+      font-size: 3em;
+      font-style: bold;
+      width: 70vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    ion-grid{
+      margin-top: 50px;
+    }
+    button {
+      background: #000;
+      color: #fff;
+      text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+      border: solid;
+      border-color: #ffffff;
+      position: relative;
+      width: 400px;
+      height: 150px;
+      font-size: 2.4em;
+      padding: 0 2em;
+      cursor: pointer;
+      transition: 800ms ease all;
+      outline: none;
+    }
+    button:hover {
+      background: #fff;
+      text-shadow: none;
+      color: #000;
+    }
+    button:before,
+    button:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 2px;
+      width: 0;
+      background: #000;
+      transition: 400ms ease all;
+    }
+    button:after {
+      right: inherit;
+      top: inherit;
+      left: 0;
+      bottom: 0;
+    }
+    button:hover:before,
+    button:hover:after {
+      width: 100%;
+      transition: 800ms ease all;
+    }
+  }
+  ion-input.input.input-md {
+    border-style: solid;
+    width: 50%;
+    margin-left: 25%;
   }
 }

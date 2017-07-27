@@ -79,13 +79,19 @@ page-home {
       margin-right: auto;
     }
     button {
+      text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
       background: #00BDAD;
       color: #fff;
       border: solid;
+      border-color: #000;
       position: relative;
       width: 600px;
       height: 150px;
-      font-size: 1.6em;
+      font-size: 2.6em;
       padding: 0 2em;
       cursor: pointer;
       transition: 800ms ease all;
@@ -93,7 +99,7 @@ page-home {
     }
     button:hover {
       background: #fff;
-      color: #00BDAD;
+      color: #000;
     }
     button:before,
     button:after {
@@ -103,7 +109,7 @@ page-home {
       right: 0;
       height: 2px;
       width: 0;
-      background: #00BDAD;
+      background: #000;
       transition: 400ms ease all;
     }
     button:after {
@@ -124,10 +130,10 @@ page-home {
     margin-left: 25%;
   }
   ion-content {
-    background-image: url('../assets/images/factory.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('../assets/images/factory5.gif');
     background-position: center;
+    background-position-y: 100px;
   }
+  
 }
 
