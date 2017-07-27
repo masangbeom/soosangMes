@@ -85,7 +85,8 @@ ion-item:hover:before,ion-item:hover:after{
   border:none;
   text-align: left;
   ion-icon{
-    margin-left: 10px;
+    //margin-left: 10px;
+    font-size: 30px;
   }
   text-shadow:
     -1px -1px 0 #000,
@@ -95,8 +96,9 @@ ion-item:hover:before,ion-item:hover:after{
   position:relative;
   height:auto;
   font-size:0.87em;
-  margin-top: 10px;
+  //margin-top: 10px;
   padding:0 2em;
+  padding-top: 10px;
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
