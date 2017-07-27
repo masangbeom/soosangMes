@@ -13,41 +13,27 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 div.toolbar-title.toolbar-title-md{
-  font-size: 35px;
+  font-size: 40px;
   color: #ffffff;
   font-weight: bold;
   text-shadow:
     -1px -1px 0 #000,
-    3px -1px 0 #000,
+    1px -1px 0 #000,
     -1px 1px 0 #000,
-    3px 1px 0 #000;  
+  
+    1px 1px 0 #000;  
 }
 .toolbar-background{
-  background-image: url('../assets/images/factoryBanner.jpg');
-  // background-repeat: no-repeat;
-  background-size:contain;
+  background-image: url('../assets/images/gear.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
 }
 
 ion-navbar{
   height: 120px;
-  button{
-    ion-icon{
-  color: #ffffff;
-  //font-weight: bold;
-  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;  
-}}
 }
 ion-icon {
   margin-top: 5px;
-}
-
-ion-card{
-  border: solid;
-  //border-color: #345cc0;
 }
 
 ion-label {
@@ -94,7 +80,7 @@ ion-item:hover:before,ion-item:hover:after{
 
 .menu_toolbar {
   button{
-  background: #00BDAD;
+  background: none;
   color:#fff;
   border:none;
   text-align: left;
@@ -149,9 +135,9 @@ button:hover:before,button:hover:after{
   }
 }
 ion-content{
-    background-image: url('../assets/images/00bdad.png');
-    background-repeat: no-repeat;
-    background-size:cover;
+    background-image: url('../assets/images/Gray-background.jpg');
+    background-size: cover;
+  
 }
 
 

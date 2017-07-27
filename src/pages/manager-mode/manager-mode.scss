@@ -6,18 +6,17 @@ page-manager-mode {
     text-align: center;
     ion-fab {
       margin-top: 20px;
-       color: #dd4b39;
     }
     h1,
     p {
-      font-size: 40px;
-  color: #ffffff;
+      font-size: 2em;
+  color: #000;
   font-weight: bold;
-  text-shadow:
-    -3px -3px 0 #000,
-    1px -3px 0 #000,
-    -3px 1px 0 #000,
-    1px 1px 0 #000;  
+  // text-shadow:
+  //   -3px -3px 0 #000,
+  //   1px -3px 0 #000,
+  //   -3px 1px 0 #000,
+  //   1px 1px 0 #000;  
     }
     h1 {
       font-size: 5em;
@@ -43,7 +42,7 @@ page-manager-mode {
     }
   }
   ion-input.input.input-md {
-    //border-style: solid;
+    // border-style: none;
     width: 50%;
     margin-left: 25%;
     background: #f4f4f4;
@@ -56,16 +55,16 @@ page-manager-mode {
     h1,
     p {
      font-size: 5em;
-  color: #ffffff;
+  color: #000;
   font-weight: bold;
-  text-shadow:
-    -3px -3px 0 #000,
-    1px -3px 0 #000,
-    -3px 1px 0 #000,
-    1px 1px 0 #000;  
+  // text-shadow:
+  //   -3px -3px 0 #000,
+  //   1px -3px 0 #000,
+  //   -3px 1px 0 #000,
+  //   1px 1px 0 #000;  
     }
     h1 {
-      font-size: 6em;
+      font-size: 3em;
       img {
         height: 200px;
         width: 200px;
@@ -73,29 +72,27 @@ page-manager-mode {
       }
     }
     p {
-      font-size: 3em;
+      font-size: 2em;
       font-style: bold;
       width: 70vw;
       margin-left: auto;
       margin-right: auto;
     }
-    ion-grid{
-      margin-top: 50px;
-    }
     button {
-      background: #000;
+    //   text-shadow:
+    // -1px -1px 0 #000,
+    // 1px -1px 0 #000,
+    // -1px 1px 0 #000,
+    // 1px 1px 0 #000;  
+      margin-top: 100px;
+      background: #345cc0;
       color: #fff;
-      text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
-      border: solid;
-      border-color: #ffffff;
+      // border: solid;
+      // border-color: #000;
       position: relative;
       width: 400px;
       height: 150px;
-      font-size: 2.4em;
+      font-size: 2em;
       padding: 0 2em;
       cursor: pointer;
       transition: 800ms ease all;
@@ -103,8 +100,8 @@ page-manager-mode {
     }
     button:hover {
       background: #fff;
-      text-shadow: none;
       color: #000;
+      text-shadow: none;
     }
     button:before,
     button:after {
@@ -130,8 +127,15 @@ page-manager-mode {
     }
   }
   ion-input.input.input-md {
-    border-style: solid;
+    // border-style: solid;
     width: 50%;
+    //height: 80px;
     margin-left: 25%;
   }
+  // ion-content {
+  //   background-image: url('../assets/images/Gray-background.jpg');
+  //   background-position: center;
+  //   background-position-y: 100px;
+  // }
+  
 }

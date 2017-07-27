@@ -36,7 +36,7 @@
       <ion-col>
         <ion-item>
           <ion-label>종료 일자</ion-label>
-          <ion-datetime min="2017" okText="확인" cancelText="취소" displayFormat="YYYY/MM/DD" [(ngModel)]="endDate" (ionChange)="onEndDateChange()"></ion-datetime>
+          <ion-datetime min="2017" doneText="확인" cancelText="취소" displayFormat="YYYY/MM/DD" [(ngModel)]="endDate" (ionChange)="onEndDateChange()"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -84,25 +84,25 @@
               <ion-label>라인 불량 상세</ion-label>
             <div class="table_attribute">
               <ion-row>
-                <ion-col style="border-right-width: 0;">
+                <ion-col>
                   <h2>공정</h2>
                   <div *ngFor="let process of line.processes">
                   <p *ngIf="!isEven(process.p_code)">{{process.p_name}}</p>
                   </div>
                 </ion-col>
-                <ion-col style="border-right-width: 0;">
+                <ion-col>
                   <h2>외관불량</h2>
                   <div *ngFor="let process of line.processes">
                   <p *ngIf="!isEven(process.p_code)">{{process.poor.poor1_num}}</p>
                   </div>
                 </ion-col>
-                <ion-col style="border-right-width: 0;">
+                <ion-col>
                   <h2>치수불량</h2>
                   <div *ngFor="let process of line.processes">
                   <p *ngIf="!isEven(process.p_code)">{{process.poor.poor2_num}}</p>
                   </div>
                 </ion-col>
-                <ion-col style="border-right-width: 0;">
+                <ion-col>
                   <h2>설비고장</h2>
                   <div *ngFor="let process of line.processes">
                   <p *ngIf="!isEven(process.p_code)">{{process.poor.poor3_num}}</p>
@@ -141,15 +141,15 @@
               <ion-label>[{{product.name}}]불량 내역</ion-label>
             <div class="table_attribute">
               <ion-row>
-                <ion-col style="border-right-width: 0;">
+                <ion-col>
                   <h2>발생라인</h2>
                   <p *ngFor="let poor of product.productPoor">{{poor.o_line}}</p>
                 </ion-col>
-                <ion-col style="border-right-width: 0;">
+                <ion-col>
                   <h2>발생공정</h2>
                    <p *ngFor="let poor of product.productPoor">{{poor.o_process}}</p>
                 </ion-col>
-                <ion-col style="border-right-width: 0;">
+                <ion-col>
                   <h2>불량내용</h2>
                    <p *ngFor="let poor of product.productPoor">{{poor.poor_what}}</p>
                 </ion-col>

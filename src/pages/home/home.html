@@ -14,33 +14,28 @@
     
   <div class="empty-list" *ngIf="isCorrect == false">
     <div class="animated zoomIn">
-    <h1>
-      <ion-icon name="ios-lock"></ion-icon>
-    </h1>
-    <p>현재 기능 잠금 상태입니다.</p>
-    <p>ID 와 PASSWORD를 통해 잠금을 해제 해주세요.</p>
-    <ion-label stacked style="color:black">ID</ion-label>
+    
+    <button (click)="login()"></button>
+    <ion-label stacked style="font-size: 18px;color:black">ID</ion-label>
     <ion-input placeholder="사원 ID를 입력하세요." type="text"></ion-input>
-    <ion-label stacked style="color:black">PASSWORD</ion-label>
+    <ion-label stacked style="font-size: 18px; color:black">PASSWORD</ion-label>
     <ion-input placeholder="사원 PASSWORD를 입력하세요." type="password"></ion-input>
-    <ion-fab center>
-      <button ion-fab color="primary" (click)="login()"><ion-icon name="ios-unlock"></ion-icon></button>
-      </ion-fab> 
     </div>
   </div>
 
   <div class="empty-lists" *ngIf="isCorrect == true">
     <div class="animated zoomIn">
-    <h1>
+    
+     <button  icon-left menuToggle></button> 
+      
+     <br/>
+     <br/>
+     <h1>
       <ion-icon name="ios-unlock"></ion-icon>
       환영합니다.
     </h1>
     
-     <button  icon-left menuToggle><ion-icon name="md-analytics"></ion-icon>Cloud Connecter-MES</button> 
-    
-     <br/>
-     <br/>
-    <p>또는 좌측 상단의 메뉴버튼을 통해 기능을 이용하세요.</p>
+    <p>상단 아이콘 또는 좌측 상단의 메뉴버튼을 통해 기능을 이용하세요.</p>
     </div>
   
   </div>
